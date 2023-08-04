@@ -32,7 +32,7 @@
                                 <td class="text-start">{{ count($item->images) }}</td>
                                 <td class="text-end"><a class="underline text-blue-600" href="{{ asset('/storage/'. $item->thumbnail) }}" target="_blank">View</a></td>
                                 <td class="text-end">{{ $item->created_at->format('D d-M-Y H:i:s A') }}</td>
-                                <td class="p-2 text-end"><a class="underline text-blue-600" href="{{ route('product.show', $item->slug) }}" target="_blank">Visit</a></td>
+                                <td class="p-2 text-end"><a class="underline text-blue-600" href="{{ route('map.show', $item->slug) }}" target="_blank">Visit</a></td>
                             </tr>
                         @endforeach
                     </table>

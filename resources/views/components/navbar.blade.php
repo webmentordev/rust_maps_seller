@@ -6,10 +6,12 @@
         </a>
         <ul class="link text-white flex items-center">
             <a class="px-4 text-lg" href="{{ route('home') }}">Home</a>
-            <a class="px-4 text-lg" href="#">Store</a>
+            <a class="px-4 text-lg" href="{{ route('maps.fetch') }}">Store</a>
             @auth
                 <a class="px-4 text-lg" href="#">Client</a>
-                <a class="px-4 text-lg" href="{{ route('dashboard') }}">Dashboard</a>
+                @if (auth()->user()->is_admin)
+                    <a class="px-4 text-lg" href="{{ route('dashboard') }}">Dashboard</a>
+                @endif
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="px-4 text-lg link py-1 bg-rust">Logout</button>

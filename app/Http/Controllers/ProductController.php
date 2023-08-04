@@ -61,7 +61,6 @@ class ProductController extends Controller
                 ],
             ]
         ]);
-
         Product::create([
             'name' => $request->name,
             'slug' => strtolower(str_replace(' ', '-', $request->name)).'-'.rand(10,100000),
@@ -78,12 +77,17 @@ class ProductController extends Controller
             'mapfile' => $request->map->storeAs('map_files', $this->randomNameGenerator().'.'.$request->map->getClientOriginalExtension(),'public_disk'),
             'original_map_name' => $request->map->getClientOriginalName(),
         ]);
-
         return back()->with('success', 'Product has been created!');
     }
 
 
     public function show(Product $product){
         dd($product);
+    }
+
+    public function fetch(){
+        return view('maps', [
+            'maps' => Product::latest()->get()
+        ]);
     }
 }

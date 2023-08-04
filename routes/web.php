@@ -11,7 +11,8 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::get("/product/{product:slug}", [ProductController::class, 'show'])->name('product.show');
+Route::get("/map/{product:slug}", [ProductController::class, 'show'])->name('map.show');
+Route::get("/maps", [ProductController::class, 'fetch'])->name('maps.fetch');
 
 Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
