@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    @apply bg-dark;
+}
+
+body:after {
+    background-image: url("https://files.facepunch.com/garry/1b1011b1/test.png?1=");
+    content: " ";
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 500;
+    pointer-events: none;
+    opacity: .6;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Bebas Neue', cursive;
+}
+
+.link a, .link{
+    font-family: 'Bebas Neue', cursive;
+}
+
+.router-link-active, .router-link-exact-active{
+    @apply text-rust;
+}
