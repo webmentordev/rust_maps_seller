@@ -6,7 +6,7 @@
         </a>
         <ul class="link text-white flex items-center">
             <a class="px-4 text-lg" href="{{ route('home') }}">Home</a>
-            <a class="px-4 text-lg" href="{{ route('maps.fetch') }}">Store</a>
+            <a class="px-4 text-lg" href="{{ route('maps.fetch') }}">Maps</a>
             @auth
                 <a class="px-4 text-lg" href="#">Client</a>
                 @if (auth()->user()->is_admin)
@@ -21,7 +21,6 @@
                 <a class="px-4 text-lg border-r border-white/10" href="{{ route('login') }}">Login</a>
                 <a class="px-4 text-lg" href="{{ route('register') }}">Signup</a>
             @endguest
-            
         </ul>
     </div>
 </nav>

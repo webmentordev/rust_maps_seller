@@ -17,7 +17,7 @@
                     @foreach ($maps as $map)
                         <div class="bg-dark-100 p-3 rounded-lg">
                             <div class="overflow-hidden rounded-lg relative">
-                                <img class="rounded-lg w-full" src="{{ asset('/storage/'. $map->thumbnail) }}" alt="{{ $map->name }} Map Image">
+                                <img class="rounded-lg w-full lazyload" data-src="{{ asset('/storage/'. $map->thumbnail) }}" alt="{{ $map->name }} Map Image">
                                 <div class="px-2 py-4 w-full">
                                     <div class="flex items-center">
                                         <span class="link bg-dark text-sm text-gray-200 py-2 px-3 mb-2 inline-block">{{ $map->created_at->diffForHumans() }}</span>

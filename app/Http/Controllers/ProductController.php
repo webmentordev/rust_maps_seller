@@ -82,7 +82,9 @@ class ProductController extends Controller
 
 
     public function show(Product $product){
-        dd($product);
+        return view('map', [
+            'product' => $product
+        ]);
     }
 
     public function fetch(){

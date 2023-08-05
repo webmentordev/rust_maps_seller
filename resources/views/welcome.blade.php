@@ -1,6 +1,6 @@
 @extends('layouts.apps')
 @section('content')
-    <section class="h-[80vh] bg-center bg-cover relative bg-fixed" style="background-image: url({{ asset('assets/header.jpg') }})">
+    <section class="h-[60vh] bg-center bg-cover relative bg-fixed" style="background-image: url({{ asset('assets/header.jpg') }})">
         <div class="absolute top-0 left-0 w-full h-full bg-dark bg-opacity-60 backdrop-blur-sm"></div>
         <img src="{{ asset('assets/rustedit_logo.png') }}" class="m-auto mb-4 absolute bottom-4 left-4" width="180" alt="RustEdit logo">
         <div class="max-w-7xl m-auto py-12 px-4 flex items-center justify-center h-full relative"> 
