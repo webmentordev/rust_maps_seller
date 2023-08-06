@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-span-2">
                                 <x-input-label for="editor" :value="__('Body')" />
-                                <textarea id="editor" name="description"></textarea>
+                                <textarea id="editor" name="description">{{ old('description') }}</textarea>
                                 <x-input-error :messages="$errors->get('description')" class="mt-2" />
                             </div>
                             <div class="col-span-2 flex">

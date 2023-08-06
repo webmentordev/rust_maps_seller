@@ -12,6 +12,11 @@
     <section class="w-full">
         <div class="max-w-5xl m-auto py-[120px] px-4"> 
             <h1 class="text-6xl text-white leading-10 text-center mb-6">Our Rust Maps</h1>
+            <form action="{{ route('map.search') }}" method="POST" class="flex items-center">
+                @csrf
+                <input type="text" name="search" required autocomplete="off" placeholder="Search map by name..." class="py-2 px-3 rounded-lg bg-dark-100 border border-white/10 w-full text-white/80">
+                <button type="submit" class="py-2 px-4 ml-3 bg-white rounded-lg link">Search</button>
+            </form>
             @if (count($maps))
                 <div class="grid grid-cols-3 gap-6 mt-6">
                     @foreach ($maps as $map)

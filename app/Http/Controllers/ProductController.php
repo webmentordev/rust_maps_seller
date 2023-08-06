@@ -74,7 +74,7 @@ class ProductController extends Controller
             'payment_link' => $paymentlink['url'],
             'description' => $request->description,
             'thumbnail' => $request->thumbnail->store('map_thumbnails', 'public_disk'),
-            'mapfile' => $request->map->storeAs('map_files', $this->randomNameGenerator().'.'.$request->map->getClientOriginalExtension(),'public_disk'),
+            'mapfile' => $request->map->store('map_files', 'public_disk'),
             'original_map_name' => $request->map->getClientOriginalName(),
         ]);
         return back()->with('success', 'Product has been created!');
@@ -90,6 +90,13 @@ class ProductController extends Controller
     public function fetch(){
         return view('maps', [
             'maps' => Product::latest()->get()
+        ]);
+    }
+
+    public function search(Request $request){
+        $product = Product::where('name', 'LIKE', '%'.$request->search.'%')->get();
+        return view('maps', [
+            'maps' => $product
         ]);
     }
 }

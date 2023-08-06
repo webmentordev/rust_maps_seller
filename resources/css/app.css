@@ -47,3 +47,19 @@ h3 {
     height: 100%;
     object-fit: cover;
 }
+
+.main-body p{
+    @apply text-white/80 mb-1;
+}
+
+.main-body ul{
+    @apply text-white/80 list-disc ml-6;
+}
+
+.main-body ul li{
+    @apply mb-1;
+}
+
+.main-body h2, .main-body h3, .main-body h4, .main-body h5{
+    @apply text-white mb-3;
+}
