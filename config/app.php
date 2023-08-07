@@ -21,6 +21,8 @@ return [
     'stripe' => env('STRIPE', ''),
 
     'contact' => env('CONTACT', ''),
+
+    'report' => env('REPORT', ''),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

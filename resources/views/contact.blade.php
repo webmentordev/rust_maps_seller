@@ -1,10 +1,10 @@
 @extends('layouts.apps')
 @section('content')
-    <section class="h-screen bg-center bg-cover relative" style="background-image: url({{ asset('assets/bug.jpg') }})">
+    <section class="h-screen bg-center bg-cover relative bg-fixed" style="background-image: url({{ asset('assets/contact.jpg') }})">
         <div class="absolute top-0 left-0 w-full h-full bg-dark bg-opacity-60 backdrop-blur-sm"></div>
         <img src="{{ asset('assets/rustedit_logo.png') }}" class="m-auto mb-4 absolute bottom-4 left-4" width="180" alt="RustEdit logo">
         <div class="max-w-xl m-auto py-12 px-4 flex items-center justify-center relative h-full"> 
-            <div class="bg-dark p-6 w-full rounded-lg">
+            <div class="bg-dark p-12 w-full rounded-lg">
                 <h1 class="text-4xl text-white mb-3 leading-[50px]">Contact Us</h1>
                 <form action="{{ route('contact') }}" method="POST">
                     @csrf
@@ -17,11 +17,21 @@
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
-                    <div class="w-full mb-3">
-                        <x-custom-label for="email" :value="__('Email')" />
-                        <x-custom-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" autocomplete="off" />
-                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                    </div>
+                    @auth
+                        <div class="w-full mb-3">
+                            <x-custom-label for="email" :value="__('Email')" />
+                            <x-custom-input id="email" class="block mt-1 w-full" type="email" name="email" :value="auth()->user()->email" autocomplete="off" />
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        </div>
+                    @endauth
+
+                    @guest
+                        <div class="w-full mb-3">
+                            <x-custom-label for="email" :value="__('Email')" />
+                            <x-custom-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" autocomplete="off" />
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        </div>
+                    @endguest
 
                     <div class="w-full mb-3">
                         <x-custom-label for="subject" :value="__('Subject')" />
@@ -31,7 +41,7 @@
 
                     <div class="w-full mb-3">
                         <x-custom-label for="message" :value="__('Message')" />
-                        <x-custom-textarea id="message" class="block mt-1 w-full" placeholder="Compose here..." name="message" :value="old('message')" autocomplete="off" />
+                        <x-custom-textarea id="message" :value="{{ old('message') }}" class="block mt-1 w-full" placeholder="Compose here..." name="message" :value="old('message')" autocomplete="off" />
                         <x-input-error :messages="$errors->get('message')" class="mt-2" />
                     </div>
                     
