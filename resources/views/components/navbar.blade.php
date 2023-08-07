@@ -8,6 +8,7 @@
             <a class="px-4 text-lg" href="{{ route('home') }}">Home</a>
             <a class="px-4 text-lg" href="{{ route('maps.fetch') }}">Maps</a>
             <a class="px-4 text-lg" href="#">Report</a>
+            <a class="px-4 text-lg" href="{{ route('contact') }}">Contact</a>
             @auth
                 <a class="px-4 text-lg" href="#">Client</a>
                 @if (auth()->user()->is_admin)

@@ -19,6 +19,8 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
     
     'stripe' => env('STRIPE', ''),
+
+    'contact' => env('CONTACT', ''),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
