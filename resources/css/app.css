@@ -11,6 +11,10 @@ body{
     @apply bg-dark;
 }
 
+[x-cloak]{
+    display: none !important;
+}
+
 body:after {
     background-image: url("https://files.facepunch.com/garry/1b1011b1/test.png?1=");
     content: " ";

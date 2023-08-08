@@ -9,7 +9,7 @@
         </div>
     </section>
     <section class="w-full">
-        <div class="max-w-5xl m-auto py-12 px-4 grid grid-cols-3 gap-3">
+        <div class="max-w-6xl m-auto py-12 px-4 grid grid-cols-3 gap-3">
             <div class="col-span-2 w-full p-3 rounded-lg bg-dark-100">
                 <div class="gellery mb-6">
                     <a class="mb-3" href="{{ asset('/storage/'. $product->thumbnail) }}" target="_blank" rel="dofollow">
@@ -33,8 +33,13 @@
                         @csrf
                         <button type="submit" class="bg-rust-green text-white link py-2 px-4 w-full text-lg inline-block text-center rounded-sm transition-all hover:bg-rust">Pay ${{ $product->price }}</button>
                     </form>
+                    <div class="flex justify-between items-center w-full mt-2 py-3">
+                        <img src="{{ asset('assets/payment_cards.png') }}" width="140px" alt="Stripe Payment methods icon">
+                        <img src="{{ asset('assets/stripe_square_logo.png') }}" width="140px" alt="Powerd by stipe image">
+                    </div>
+                    <p class="text-white/80 text-sm">We never retain your personal credit card information on our platform. Instead, we utilize the secure Stripe payment system, which employs its own checkout page for secure transactions. When you sign up, it's solely for authentication purposes, ensuring that you're not a bot. Rest assured, we won't inundate your inbox with marketing emails</p>
                 </div>
-                <a href="#" class="font-bold py-2 px-4 rounded-sm bg-rust transition-all text-sm hover:bg-rust-green flex items-center w-fit"><img src="https://api.iconify.design/material-symbols:bug-report.svg?color=%23000" width="20" class="mr-1" alt="Bug icon">Report Bug</a>
+                <a href="{{ route('report') }}" class="font-bold py-2 px-4 rounded-sm bg-rust transition-all text-sm hover:bg-rust-green flex items-center w-fit"><img src="https://api.iconify.design/material-symbols:bug-report.svg?color=%23000" width="20" class="mr-1" alt="Bug icon">Report Bug</a>
             </div>
         </div>
     </section>

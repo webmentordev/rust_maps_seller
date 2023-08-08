@@ -12,6 +12,7 @@
 <body>
     <x-navbar />
     @yield('content')
+    <x-f-a-q />
     <x-footer />
 </body>
 </html>

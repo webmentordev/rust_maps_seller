@@ -11,11 +11,21 @@
                     @if (session('success'))
                         <x-custom-success :value="session('success')" />
                     @endif
-                    <div class="w-full mb-3">
-                        <x-custom-label for="name" :value="__('Name')" />
-                        <x-custom-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" autocomplete="off" />
-                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                    </div>
+
+                    @auth
+                        <div class="w-full mb-3">
+                            <x-custom-label for="name" :value="__('Name')" />
+                            <x-custom-input id="name" class="block mt-1 w-full" type="text" name="name" :value="auth()->user()->name" autocomplete="off" />
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        </div>
+                    @endauth
+                    @guest
+                        <div class="w-full mb-3">
+                            <x-custom-label for="name" :value="__('Name')" />
+                            <x-custom-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" autocomplete="off" />
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        </div>
+                    @endguest
 
                     @auth
                         <div class="w-full mb-3">
