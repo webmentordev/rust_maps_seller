@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\TermsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,6 +23,9 @@ Route::get("contact", [ContactController::class, 'index'])->name('contact');
 Route::post("contact", [ContactController::class, 'store']);
 
 Route::get("report", [ReportController::class, 'index'])->name('report');
+
+Route::get("terms-of-service", [TermsController::class, 'index'])->name('terms');
+Route::get("privacy-policy", [TermsController::class, 'policy'])->name('policy');
 
 Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');

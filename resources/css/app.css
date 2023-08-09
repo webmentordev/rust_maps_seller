@@ -67,3 +67,11 @@ h3 {
 .main-body h2, .main-body h3, .main-body h4, .main-body h5{
     @apply text-white mb-3;
 }
+
+.terms-of-service p{
+    @apply text-gray-200 mb-4 text-sm;
+}
+
+.terms-of-service h2{
+    @apply text-white text-2xl mb-2;
+}
