@@ -27,6 +27,9 @@ Route::get("report", [ReportController::class, 'index'])->name('report');
 Route::get("terms-of-service", [TermsController::class, 'index'])->name('terms');
 Route::get("privacy-policy", [TermsController::class, 'policy'])->name('policy');
 
+Route::get('/cancel/{order:checkout_id}', [OrderController::class, 'cancelOrder']);
+Route::get('/success/{order:checkout_id}', [OrderController::class, 'successOrder']);
+
 Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('gellery', [GelleryController::class, 'index'])->name('gellery');
@@ -41,8 +44,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::post('order', [OrderController::class, 'store'])->name('order');
     Route::post("report", [ReportController::class, 'store']);
+
+    Route::post("order/{product:slug}", [OrderController::class, 'store'])->name('order');
 });
 
 require __DIR__.'/auth.php';

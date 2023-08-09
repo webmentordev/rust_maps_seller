@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Order;
 use App\Models\Gellery;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,11 +25,14 @@ class Product extends Model
         'is_outdated',
         'thumbnail',
         'mapfile',
-        'description',
-        'payment_link'
+        'description'
     ];
 
     public function images(){
         return $this->hasMany(Gellery::class);
+    }
+
+    public function orders(){
+        return $this->hasMany(Order::class);
     }
 }

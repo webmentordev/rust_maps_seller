@@ -23,6 +23,9 @@ return [
     'contact' => env('CONTACT', ''),
 
     'report' => env('REPORT', ''),
+
+    'order' => env('ORDER', ''),
+    
     /*
     |--------------------------------------------------------------------------
     | Application Environment

@@ -53,14 +53,6 @@ class ProductController extends Controller
             'currency' => 'USD',
             'product' => $product['id'],
         ]);
-        $paymentlink = $stripe->paymentLinks->create([
-            'line_items' => [
-                [
-                    'price' => $price['id'],
-                    'quantity' => 1
-                ],
-            ]
-        ]);
         Product::create([
             'name' => $request->name,
             'slug' => strtolower(str_replace(' ', '-', $request->name)).'-'.rand(10,100000),
@@ -71,7 +63,6 @@ class ProductController extends Controller
             'is_buildable' => $buildable,
             'price_id' => $price['id'],
             'stripe_id' => $product['id'],
-            'payment_link' => $paymentlink['url'],
             'description' => $request->description,
             'thumbnail' => $request->thumbnail->store('map_thumbnails', 'public_disk'),
             'mapfile' => $request->map->store('map_files', 'public_disk'),

@@ -36,7 +36,7 @@ class ReportController extends Controller
                 'content' => "**Name**: {$request->name}\n**Email**: {$request->email}\n**Map**: {$request->map}\n**Message**: {$request->message}\n==================\n"
             ]);
 
-            return back()->with('success', "Bug has been reported. We'll get it fixed ASAP");
+            return back()->with('success', "Bug has been reported. We will get it fixed ASAP");
         }else{
             return back()->with('error', "Please put the correct map name!");
         }

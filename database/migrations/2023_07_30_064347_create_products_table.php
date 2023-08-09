@@ -28,7 +28,6 @@ return new class extends Migration
             $table->text('mapfile');
             $table->text('original_map_name');
             $table->text('description');
-            $table->text('payment_link');
             $table->timestamps();
         });
     }

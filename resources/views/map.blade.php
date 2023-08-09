@@ -29,7 +29,7 @@
                         <li class="mb-1">Receive map update on email</li>
                         <li>Constant updates after force wipe!</li>
                     </ul>
-                    <form action="{{ route("order") }}" method="POST">
+                    <form action="{{ route("order", $product->slug) }}" method="POST">
                         @csrf
                         <button type="submit" class="bg-rust-green text-white link py-2 px-4 w-full text-lg inline-block text-center rounded-sm transition-all hover:bg-rust">Pay ${{ $product->price }}</button>
                     </form>
