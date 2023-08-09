@@ -45,7 +45,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post("report", [ReportController::class, 'store']);
-
     Route::post("order/{product:slug}", [OrderController::class, 'store'])->name('order');
 });
 

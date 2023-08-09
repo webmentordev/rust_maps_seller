@@ -11,6 +11,9 @@
     <section class="w-full">
         <div class="max-w-6xl m-auto py-12 px-4 grid grid-cols-3 gap-3">
             <div class="col-span-2 w-full p-3 rounded-lg bg-dark-100">
+                @if (session('error'))
+                    <x-custom-error :value="session('error')" />
+                @endif
                 <div class="gellery mb-6">
                     <a class="mb-3" href="{{ asset('/storage/'. $product->thumbnail) }}" target="_blank" rel="dofollow">
                         <img data-src="{{ asset('/storage/'. $product->thumbnail) }}" class="lazyload w-full rounded-lg" alt="{{ $product->name }} Rust Map Image">

@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use App\Models\Order;
 use App\Models\Product;
 use Stripe\StripeClient;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class OrderController extends Controller
@@ -34,7 +33,10 @@ class OrderController extends Controller
     }
 
     public function store(Product $product){
-        
+        if(Order::where('user_id', auth()->user()->id)->where('status', 'success')->first()){
+            return back()->with('error', 'Sorry, but you already own the map! Please check the client area for any updates');
+        }
+
         $order_id = $this->randomStringGenerator();
         $checkout_id = $this->randomCheckOutGenerator();
         Order::create([
