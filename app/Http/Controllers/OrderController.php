@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Http;
 
 class OrderController extends Controller
 {
+    public function orders(){
+        return view('orders', [
+            'orders' => Order::latest()->paginate(50)
+        ]);
+    }
+
     public function randomStringGenerator() {
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
         $pass = array();

@@ -38,6 +38,8 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::get('products', [ProductController::class, 'index'])->name('product.dashboard');
     Route::get('create-products', [ProductController::class, 'create'])->name('product.create');
     Route::post('products', [ProductController::class, 'store'])->name('create.product');
+
+    Route::get('orders', [OrderController::class, 'orders'])->name('orders');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {

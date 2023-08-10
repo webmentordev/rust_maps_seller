@@ -1,7 +1,7 @@
 <nav class="w-full fixed top-5 p-3 left-0 z-50 px-4">
     <div class="max-w-5xl py-2 px-3 m-auto flex items-center justify-between bg-dark rounded-lg border border-white/10 bg-opacity-70 backdrop-blur-md">
         <a class="flex items-center" href="{{ route('home') }}">
-            <img src="{{ asset('assets/buyrust_favicon.png') }}" class="rounded-md" width="45" alt="Buy Cushrefm Rust Maps Logo">
+            <img src="{{ asset('assets/buy_rust_maps_logo.png') }}" class="rounded-md" width="45" alt="Buy Cushrefm Rust Maps Logo">
             <span class="ml-3 link text-2xl text-white">Buyrustmaps</span>
         </a>
         <ul class="link text-white flex items-center">

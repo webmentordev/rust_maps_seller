@@ -2,7 +2,7 @@
     <div class="max-w-6xl m-auto py-12 px-4">
         <div class="flex justify-between border-b border-white/10 py-6">
             <div class="w-full max-w-3xl">
-                <img src="{{ asset('/assets/buyrust_favicon.png') }}" width="60" class="mb-3" alt="BuyRustMaps Logo">
+                <img src="{{ asset('/assets/buy_rust_maps_logo.png') }}" width="60" class="mb-3" alt="BuyRustMaps Logo">
                 <h3 class="text-white mb-3 text-3xl">BuyRustMapsStore</h3>
                 <p class="text-white/80 mb-3">Welcome to BuyRustMaps.store, your ultimate destination for acquiring top-quality game maps for Rust, the renowned multiplayer survival game. We specialize in providing gamers with meticulously crafted maps that enhance your gameplay experience in Rust's dynamic and challenging world. With a keen focus on authenticity, detail, and user satisfaction.</p>
                 <ul class="flex">
