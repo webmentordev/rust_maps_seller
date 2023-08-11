@@ -10,7 +10,7 @@
             <a class="px-4 text-lg" href="{{ route('report') }}">Report</a>
             <a class="px-4 text-lg" href="{{ route('contact') }}">Contact</a>
             @auth
-                <a class="px-4 text-lg border-r border-white/10" href="#">Client</a>
+                <a class="px-4 text-lg border-r border-white/10" href="{{ route('client') }}">Client</a>
                 @if (auth()->user()->is_admin)
                     <a class="px-4 text-lg" href="{{ route('dashboard') }}">Dashboard</a>
                 @endif

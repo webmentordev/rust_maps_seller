@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GelleryController;
@@ -48,6 +49,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post("report", [ReportController::class, 'store']);
     Route::post("order/{product:slug}", [OrderController::class, 'store'])->name('order');
+    Route::get("client", [ClientController::class, 'index'])->name('client');
+    Route::post("client/{order:map_slug}", [ClientController::class, 'download'])->name('client.download');
 });
 
 require __DIR__.'/auth.php';

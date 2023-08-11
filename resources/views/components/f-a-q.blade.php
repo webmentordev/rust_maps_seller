@@ -1,5 +1,5 @@
 <section class="w-full bg-dark-100">
-    <div class="max-w-5xl m-auto py-[120px] px-4 flex flex-col justify-center">
+    <div class="max-w-5xl m-auto py-[120px] px-4 flex flex-col justify-center" id="questions">
         <h2 class="text-center text-white text-7xl mb-6">Frequently Asked Questions</h2>
         <div class="flex w-full">
             <div class="flex flex-col mr-4 w-full">

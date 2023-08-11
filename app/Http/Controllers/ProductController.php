@@ -65,7 +65,7 @@ class ProductController extends Controller
             'stripe_id' => $product['id'],
             'description' => $request->description,
             'thumbnail' => $request->thumbnail->store('map_thumbnails', 'public_disk'),
-            'mapfile' => $request->map->store('map_files', 'public_disk'),
+            'mapfile' => $request->map->store('map_files_20087341', 'public_disk'),
             'original_map_name' => $request->map->getClientOriginalName(),
         ]);
         return back()->with('success', 'Product has been created!');
