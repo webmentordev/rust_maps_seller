@@ -51,6 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post("order/{product:slug}", [OrderController::class, 'store'])->name('order');
     Route::get("client", [ClientController::class, 'index'])->name('client');
     Route::post("client/{order:map_slug}", [ClientController::class, 'download'])->name('client.download');
+    Route::get("client/search", [ClientController::class, 'search'])->name('client.filter');
 });
 
 require __DIR__.'/auth.php';

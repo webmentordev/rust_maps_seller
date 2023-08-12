@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
@@ -33,5 +34,36 @@ class ClientController extends Controller
             'Content-Disposition' => 'attachment; filename="' . $newFileName . '"',
         ];
         return response()->file($originalFilePath, $headers);
+    }
+
+
+    public function search(Request $request){
+        if($request->filter == 'last-updated'){
+            return view('client', [
+                'orders' => Order::where('user_id', auth()->user()->id)->where('status', 'success')->orderBy('updated_at', 'desc')->get()
+            ]);
+        }elseif($request->filter == 'fps-plus'){
+            return view('client', [
+                'orders' => Order::where('user_id', auth()->user()->id)->where('status', 'success')->whereHas('product', function ($query) {
+                    $query->where('is_fps', true);
+                })->get()
+            ]);
+        }elseif($request->filter == 'buildable'){
+            return view('client', [
+                'orders' => Order::where('user_id', auth()->user()->id)->where('status', 'success')->whereHas('product', function ($query) {
+                    $query->where('is_buildable', true);
+                })->get()
+            ]);
+        }elseif($request->filter == 'combined'){
+            return view('client', [
+                'orders' => Order::where('user_id', auth()->user()->id)->where('status', 'success')->whereHas('product', function ($query) {
+                    $query->where('is_combined', true);
+                })->get()
+            ]);
+        }else{
+            return view('client', [
+                'orders' => Order::where('user_id', auth()->user()->id)->where('status', 'success')->latest()->get()
+            ]);
+        }
     }
 }

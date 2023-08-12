@@ -6,7 +6,7 @@
                 <div class="w-full p-6 rounded-lg bg-dark border border-white/10 h-fit mb-4">
                     <h3 class="text-xl text-white">What is a FPS+ map? 💻</h3>
                     <div class="py-2">
-                        <p class="text-gray-200 text-sm leading-7">The terrain is flat and smooth, with unnecessary prefabs removed and fewer rock formations, which improves server and player FPS. Please read the map description for more information.</p>
+                        <p class="text-gray-200 text-sm leading-7">The terrain is flat and smooth, with unnecessary prefabs removed and fewer rock formations, which improves server performance and player FPS. Please read the map description for more information.</p>
                     </div>
                 </div>
     

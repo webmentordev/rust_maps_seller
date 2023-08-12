@@ -28,6 +28,11 @@ class Product extends Model
         'description'
     ];
 
+    protected $hidden = [
+        'mapfile',
+        'original_map_name'
+    ];
+
     public function images(){
         return $this->hasMany(Gellery::class);
     }
