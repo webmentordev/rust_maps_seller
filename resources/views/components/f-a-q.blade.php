@@ -46,10 +46,16 @@
                     </div>
                 </div>
 
-                <div class="w-full p-6 rounded-lg bg-dark border border-white/10 h-fit">
+                <div class="w-full p-6 rounded-lg bg-dark border border-white/10 h-fit mb-4">
                     <h3 class="text-xl text-white">Is it possible to repurchase the same map? 🗺</h3>
                     <div class="py-2">
                         <p class="text-gray-200 text-sm leading-7">Nope. Once a map is purchased, it becomes a permanent and unique registration on your account. If you have concerns regarding updates, rest assured. Maps will be updated in the event of any bugs or improvements. Your peace of mind is our priority.</p>
+                    </div>
+                </div>
+                <div class="w-full p-6 rounded-lg bg-dark border border-white/10 h-fit">
+                    <h3 class="text-xl text-white">What is the average map size? 🌎</h3>
+                    <div class="py-2">
+                        <p class="text-gray-200 text-sm leading-7">We create maps with sizes ranging from 3500 to 4300, which are designed for PvP gameplay.</p>
                     </div>
                 </div>
             </div>

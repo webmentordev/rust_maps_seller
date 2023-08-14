@@ -14,12 +14,23 @@
                 @if (session('error'))
                     <x-custom-error :value="session('error')" />
                 @endif
-                <div class="gellery mb-6">
-                    <a class="mb-3" href="{{ asset('/storage/'. $product->thumbnail) }}" target="_blank" rel="dofollow">
-                        <img data-src="{{ asset('/storage/'. $product->thumbnail) }}" class="lazyload w-full rounded-lg" alt="{{ $product->name }} Rust Map Image">
+                <div class="grid grid-cols-4 mb-3 gap-3">
+                    <a class="mb-3 w-full mr-3 col-span-3" href="{{ asset('/storage/'. $product->thumbnail) }}" target="_blank" rel="dofollow">
+                        <img data-src="{{ asset('/storage/'. $product->thumbnail) }}" class="lazyload w-full h-full rounded-lg" alt="{{ $product->name }} Rust Map Image">
                     </a>
+                    <div class="flex flex-col w-fit">
+                        @foreach ($product->images as $image)
+                            <a class="mb-3" href="{{ asset('/storage/'. $image->url) }}" target="_blank" rel="dofollow">
+                                <img data-src="{{ asset('/storage/'. $image->url) }}" class="lazyload w-full rounded-lg" alt="{{ $product->name }} Rust Map Image">
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
-                <main class="main-body">
+                <main class="main-body px-6">
+                    <h2>Features</h2>
+                    <h3>Features</h3>
+                    <h4>Features</h4>
+                    <p>Lorem ipsum dolor sit amet <span>consectetur</span> adipisicing elit. Suscipit, <a href="#questions">culpa. Iure</a> fugiat possimus corrupti quisquam officiis beatae, soluta vitae magnam.\</p>
                     {!! $product->description !!}
                 </main>
             </div>

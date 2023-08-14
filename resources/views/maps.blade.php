@@ -22,6 +22,7 @@
                     @foreach ($maps as $map)
                         <div class="bg-dark-100 p-3 rounded-lg">
                             <div class="overflow-hidden rounded-lg relative">
+                                <span class="link absolute z-10 bg-rust top-2 left-3 py-1 px-2 rounded-md text-lg text-white">{{ $map->map_size }} MAP</span>
                                 <img class="rounded-lg w-full lazyload" data-src="{{ asset('/storage/'. $map->thumbnail) }}" alt="{{ $map->name }} Map Image">
                                 <div class="px-2 py-4 w-full">
                                     <div class="flex items-center">

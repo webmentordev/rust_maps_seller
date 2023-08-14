@@ -34,7 +34,7 @@ class Product extends Model
     ];
 
     public function images(){
-        return $this->hasMany(Gellery::class);
+        return $this->hasMany(Gellery::class)->where('is_active', true);
     }
 
     public function orders(){

@@ -57,7 +57,7 @@ h3 {
 }
 
 .main-body ul{
-    @apply text-white/80 list-disc ml-6;
+    @apply text-white/80 list-disc ml-8 mt-3;
 }
 
 .main-body ul li{
@@ -66,6 +66,20 @@ h3 {
 
 .main-body h2, .main-body h3, .main-body h4, .main-body h5{
     @apply text-white mb-3;
+}
+.main-body h2 {
+    @apply text-5xl
+}
+.main-body h3 {
+    @apply text-3xl
+}
+
+.main-body span{
+    @apply text-rust font-semibold;
+}
+
+.main-body a{
+    @apply text-rust underline hover:text-rust-green;
 }
 
 .terms-of-service p{
