@@ -6,6 +6,11 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Stripe\StripeClient;
 
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
+
 class ProductController extends Controller
 {
     public function index(){
@@ -71,20 +76,70 @@ class ProductController extends Controller
         return back()->with('success', 'Product has been created!');
     }
 
-
     public function show(Product $product){
+        SEOMeta::setTitle($product->name);
+        SEOMeta::setCanonical(config('app.url').'/map/'.$product->slug);
+
+        OpenGraph::setTitle($product->name);
+        OpenGraph::setUrl(config('app.url').'/map/'.$product->slug);
+        OpenGraph::addProperty("type", "website");
+        OpenGraph::addProperty("locale", "eu");
+        OpenGraph::addImage(config('app.url').'/storage/'.$product->thumbnail);
+
+        TwitterCard::setTitle($product->name);
+        TwitterCard::setSite('@buyrustmapsstore');
+        TwitterCard::setImage(config('app.url').'/storage/'.$product->thumbnail);
+
+        JsonLd::setTitle($product->name);
+        JsonLd::setType("WebSite");
+        JsonLd::addImage(config('app.url').'/storage/'.$product->thumbnail);
+
         return view('map', [
             'product' => $product
         ]);
     }
 
     public function fetch(){
+        SEOMeta::setTitle('Rust Maps Collection');
+        SEOMeta::setCanonical(config('app.url').'/maps');
+
+        OpenGraph::setTitle('Rust Maps Collection');
+        OpenGraph::setUrl(config('app.url').'/maps');
+        OpenGraph::addProperty("type", "website");
+        OpenGraph::addProperty("locale", "eu");
+        OpenGraph::addImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        TwitterCard::setTitle('Rust Maps Collection');
+        TwitterCard::setSite('@buyrustmapsstore');
+        TwitterCard::setImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        JsonLd::setTitle('Rust Maps Collection');
+        JsonLd::setType("WebSite");
+        JsonLd::addImage(config('app.url').'/assets/rust_maps_preview.png');
+        
         return view('maps', [
             'maps' => Product::latest()->get()
         ]);
     }
 
     public function search(Request $request){
+        SEOMeta::setTitle('Search Rust Maps');
+        SEOMeta::setCanonical(config('app.url').'/map/search');
+
+        OpenGraph::setTitle('Search Rust Maps');
+        OpenGraph::setUrl(config('app.url').'/map/search');
+        OpenGraph::addProperty("type", "website");
+        OpenGraph::addProperty("locale", "eu");
+        OpenGraph::addImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        TwitterCard::setTitle('Search Rust Maps');
+        TwitterCard::setSite('@buyrustmapsstore');
+        TwitterCard::setImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        JsonLd::setTitle('Search Rust Maps');
+        JsonLd::setType("WebSite");
+        JsonLd::addImage(config('app.url').'/assets/rust_maps_preview.png');
+
         $product = Product::where('name', 'LIKE', '%'.$request->search.'%')->get();
         return view('maps', [
             'maps' => $product
