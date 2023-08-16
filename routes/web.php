@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\GelleryController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TermsController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SiteMapGenerator;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\GelleryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\TermsController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -53,5 +54,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post("client/{order:map_slug}", [ClientController::class, 'download'])->name('client.download');
     Route::get("client/search", [ClientController::class, 'search'])->name('client.filter');
 });
+
+Route::get('/sitemap.xml', [SiteMapGenerator::class, 'index'])->name('sitemap');
 
 require __DIR__.'/auth.php';

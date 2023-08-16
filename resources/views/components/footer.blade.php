@@ -7,7 +7,8 @@
                 <p class="text-white/80 mb-3">Welcome to BuyRustMaps.store, your ultimate destination for acquiring top-quality game maps for Rust, the renowned multiplayer survival game. We specialize in providing gamers with meticulously crafted maps that enhance your gameplay experience in Rust's dynamic and challenging world. With a keen focus on authenticity, detail, and user satisfaction.</p>
                 <ul class="flex">
                     <li class="mr-3"><a href="{{ route('terms') }}" class="underline text-sm text-rust hover:text-rust-green">Terms Of Service</a></li>
-                    <li><a href="{{ route('policy') }}" class="underline text-sm text-rust hover:text-rust-green">Privacy Policy</a></li>
+                    <li class="mr-3"><a href="{{ route('policy') }}" class="underline text-sm text-rust hover:text-rust-green">Privacy Policy</a></li>
+                    <li><a href="{{ route('sitemap') }}" class="underline text-sm text-rust hover:text-rust-green">Sitemap</a></li>
                 </ul>
             </div>
             <div class="text-end">

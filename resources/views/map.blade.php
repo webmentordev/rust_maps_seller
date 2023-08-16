@@ -27,10 +27,6 @@
                     </div>
                 </div>
                 <main class="main-body px-6">
-                    <h2>Features</h2>
-                    <h3>Features</h3>
-                    <h4>Features</h4>
-                    <p>Lorem ipsum dolor sit amet <span>consectetur</span> adipisicing elit. Suscipit, <a href="#questions">culpa. Iure</a> fugiat possimus corrupti quisquam officiis beatae, soluta vitae magnam.\</p>
                     {!! $product->description !!}
                 </main>
             </div>
