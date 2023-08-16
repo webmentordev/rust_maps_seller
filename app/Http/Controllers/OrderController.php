@@ -39,7 +39,7 @@ class OrderController extends Controller
     }
 
     public function store(Product $product){
-        if(Order::where('user_id', auth()->user()->id)->where('status', 'success')->first()){
+        if(Order::where('user_id', auth()->user()->id)->where('status', 'success')->where('product_id', $product->id)->first()){
             return back()->with('error', 'Sorry, but you already own the map! Please check the client area for any updates');
         }
 

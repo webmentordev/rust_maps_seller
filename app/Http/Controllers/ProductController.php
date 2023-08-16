@@ -48,10 +48,13 @@ class ProductController extends Controller
         $buildable = $request->has('buildable') ? true : false;
         $combined = $request->has('combined') ? true : false;
 
-
+        $imageLink = $request->thumbnail->store('map_thumbnails', 'public_disk');
         $stripe = new StripeClient(config('app.stripe'));
         $product = $stripe->products->create([
-            'name' => $request->name
+            'name' => $request->name,
+            'images' => [
+                config('app.url').'/storage/'.$imageLink
+            ]
         ]);
         $price = $stripe->prices->create([
             'unit_amount' => $request->price * 100,
@@ -60,7 +63,7 @@ class ProductController extends Controller
         ]);
         Product::create([
             'name' => $request->name,
-            'slug' => strtolower(str_replace(' ', '-', $request->name)).'-'.rand(10,100000),
+            'slug' => strtolower(str_replace(' ', '-', $request->name)).'-'.rand(10, 100000),
             'price' => $request->price,
             'map_size' => $request->size,
             'is_combined' => $combined,
@@ -69,7 +72,7 @@ class ProductController extends Controller
             'price_id' => $price['id'],
             'stripe_id' => $product['id'],
             'description' => $request->description,
-            'thumbnail' => $request->thumbnail->store('map_thumbnails', 'public_disk'),
+            'thumbnail' => $imageLink,
             'mapfile' => $request->map->store('map_files_20087341', 'public_disk'),
             'original_map_name' => $request->map->getClientOriginalName(),
         ]);
