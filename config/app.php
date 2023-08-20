@@ -24,7 +24,9 @@ return [
 
     'report' => env('REPORT', ''),
 
-    'order' => env('ORDER', ''),
+    'pending' => env('PENDING', ''),
+    'completed' => env('COMPLETED', ''),
+    'cancelled' => env('CANCELLED', ''),
     
     /*
     |--------------------------------------------------------------------------

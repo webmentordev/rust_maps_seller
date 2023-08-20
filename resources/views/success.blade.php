@@ -13,7 +13,7 @@
                 <h2 class="mb-2 text-lg text-white">What's NEXT?</h2>
                 <p class="text-gray-300">The map has been permanently registered to your account. You can now download it by visiting our client area.</p>
             </div>
-            <a href="{{ route('home') }}" class="w-full bg-rust text-white p-3 rounded-md mt-3 inline-block text-center">Go To Client!</a>
+            <a href="{{ route('client') }}" class="w-full bg-rust text-white p-3 rounded-md mt-3 inline-block text-center">Go To Client!</a>
         </div>
     </header>
 @endsection

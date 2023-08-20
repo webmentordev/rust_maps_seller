@@ -2,9 +2,9 @@
     <div class="max-w-5xl m-auto py-[120px] px-4"> 
         <h1 class="text-6xl text-white leading-10 text-center mb-6">New Rust Maps</h1>
         @if (count($maps))
-            <div class="grid grid-cols-3 gap-6 mt-6">
+            <div class="grid grid-cols-3 gap-6 mt-6 m-auto 710:flex 710:flex-col 1000:grid-cols-2 1000:max-w-2xl">
                 @foreach ($maps as $map)
-                    <div class="bg-dark-100 p-3 rounded-lg">
+                    <div class="bg-dark-100 p-3 rounded-lg 710:max-w-[440px] w-full m-auto">
                         <div class="overflow-hidden rounded-lg relative">
                             <span class="link absolute z-10 bg-rust top-2 left-3 py-1 px-2 rounded-md text-lg text-white">{{ $map->map_size }} MAP</span>
                             <img class="rounded-lg w-full lazyload" data-src="{{ asset('/storage/'. $map->thumbnail) }}" alt="{{ $map->name }} Map Image">
@@ -32,7 +32,7 @@
             <p class="text-2xl mt-3 text-center text-white">No Maps data exist at the moment! 😢</p>
         @endif
         <div class="w-full flex items-center justify-center mt-12">
-            <a href="#" class="bg-rust text-white link py-2 px-5 w-fit inline-block text-center rounded-sm transition-all hover:bg-rust-green">View All Maps</a>
+            <a href="{{ route('maps.fetch') }}" class="bg-rust text-white link py-2 px-5 w-fit inline-block text-center rounded-sm transition-all hover:bg-rust-green">View All Maps</a>
         </div>
     </div>
 </section>

@@ -2,10 +2,9 @@
 @section('content')
     <section class="h-[50vh] bg-center bg-cover relative" style="background-image: url({{ asset('assets/store.jpg') }})">
         <div class="absolute top-0 left-0 w-full h-full bg-dark bg-opacity-60 backdrop-blur-sm"></div>
-        <img src="{{ asset('assets/rustedit_logo.png') }}" class="m-auto mb-4 absolute bottom-4 left-4" width="180" alt="RustEdit logo">
         <div class="max-w-7xl m-auto py-12 px-4 flex items-center justify-center h-full relative"> 
             <div class="text-center">
-                <h1 class="text-6xl text-white mb-3 leading-[50px]">Our Personalized Rust Maps<br> <span class="text-5xl link text-rust">Collection</span></h1>
+                <h1 class="text-6xl text-white mb-3 leading-[50px] 520:text-4xl">Our Personalized Rust Maps<br> <span class="text-5xl link text-rust">Collection</span></h1>
             </div>
         </div>
     </section>
@@ -18,9 +17,9 @@
                 <button type="submit" class="py-2 px-4 ml-3 bg-white rounded-lg link">Search</button>
             </form>
             @if (count($maps))
-                <div class="grid grid-cols-3 gap-6 mt-6">
+                <div class="grid grid-cols-3 gap-6 mt-6 m-auto 710:flex 710:flex-col 1000:grid-cols-2 1000:max-w-2xl">
                     @foreach ($maps as $map)
-                        <div class="bg-dark-100 p-3 rounded-lg">
+                        <div class="bg-dark-100 p-3 rounded-lg 710:max-w-[440px] w-full m-auto">
                             <div class="overflow-hidden rounded-lg relative">
                                 <span class="link absolute z-10 bg-rust top-2 left-3 py-1 px-2 rounded-md text-lg text-white">{{ $map->map_size }} MAP</span>
                                 <img class="rounded-lg w-full lazyload" data-src="{{ asset('/storage/'. $map->thumbnail) }}" alt="{{ $map->name }} Map Image">

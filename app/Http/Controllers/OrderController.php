@@ -71,7 +71,7 @@ class OrderController extends Controller
 
         $user = auth()->user();
         $url = $checkout['url'];
-        Http::post(config('app.order'), [
+        Http::post(config('app.pending'), [
             'content' => "**Name**: {$user->name}\n**Email**: {$user->email}\n**Product**: {$product->name}\n**OrderID**: {$order_id}\n**CheckoutID**: {$checkout_id}\n**Price**: {$product->price}\n**CheckoutURL**: {$url}\n=======================================================\n"
         ]);
 
@@ -82,7 +82,7 @@ class OrderController extends Controller
         if($order->status == 'pending'){
             $order->status = 'canceled';
             $order->save();
-            Http::post(config('app.order'), [
+            Http::post(config('app.cancelled'), [
                 'content' => "**OrderID**: $order->order_id worth of $$order->price has been cancelled.\n==================================="
             ]);
             return view('cancel');
@@ -94,7 +94,7 @@ class OrderController extends Controller
         if($order->status == 'pending'){
             $order->status = 'success';
             $order->save();
-            Http::post(config('app.order'), [
+            Http::post(config('app.completed'), [
                 'content' => "**OrderID**: $order->order_id worth of $$order->price has been Completed & Paid.\n==================================="
             ]);
             return view('success', [

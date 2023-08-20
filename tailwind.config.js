@@ -11,6 +11,33 @@ export default {
 
     theme: {
         extend: {
+            screens: {
+                "1000": {
+                    "max": "1000px"
+                },
+                "900": {
+                    "max": "900px"
+                },
+                "760": {
+                    "max": "760px"
+                },
+                "710": {
+                    "max": "710px"
+                },
+                "700": {
+                    "max": "700px"
+                },
+                "540": {
+                    "max": "540px"
+                },
+                "520": {
+                    "max": "520px"
+                },
+                "430": {
+                    "max": "430px"
+                },
+                
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },

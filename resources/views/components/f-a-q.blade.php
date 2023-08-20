@@ -1,8 +1,8 @@
 <section class="w-full bg-dark-100">
     <div class="max-w-5xl m-auto py-[120px] px-4 flex flex-col justify-center" id="questions">
-        <h2 class="text-center text-white text-7xl mb-6">Frequently Asked Questions</h2>
-        <div class="flex w-full">
-            <div class="flex flex-col mr-4 w-full">
+        <h2 class="text-center text-white text-7xl mb-6 430:text-4xl 520:text-5xl">Frequently Asked Questions</h2>
+        <div class="flex w-full 710:flex-col">
+            <div class="flex flex-col 710:mr-0 mr-4 w-full 710:mb-4">
                 <div class="w-full p-6 rounded-lg bg-dark border border-white/10 h-fit mb-4">
                     <h3 class="text-xl text-white">What is a FPS+ map? 💻</h3>
                     <div class="py-2">
