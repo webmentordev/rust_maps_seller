@@ -10,16 +10,16 @@
                     <form action="{{ route('client.filter') }}" method="get" class="mr-2 mb-2">
                         <button type="submit" name="filter" value="last-updated" class="px-4 text-lg link py-1 text-white bg-rust-green hover:bg-rust transition-all">New Update</button>
                     </form>
-                    <form action="{{ route('client.filter') }}" method="get" class="m-2">
+                    <form action="{{ route('client.filter') }}" method="get" class="mr-2 mb-2">
                         <button type="submit" name="filter" value="fps-plus" class="px-4 text-lg link py-1 text-white bg-rust-green hover:bg-rust transition-all">FPS+</button>
                     </form>
-                    <form action="{{ route('client.filter') }}" method="get" class="m-2">
+                    <form action="{{ route('client.filter') }}" method="get" class="mr-2 mb-2">
                         <button type="submit" name="filter" value="buildable" class="px-4 text-lg link py-1 text-white bg-rust-green hover:bg-rust transition-all">Buildable</button>
                     </form>
-                    <form action="{{ route('client.filter') }}" method="get" class="m-2">
+                    <form action="{{ route('client.filter') }}" method="get" class="mr-2 mb-2">
                         <button type="submit" name="filter" value="combined" class="px-4 text-lg link py-1 text-white bg-rust-green hover:bg-rust transition-all">Combined</button>
                     </form>
-                    <form action="{{ route('client.filter') }}" method="get" class="m-2">
+                    <form action="{{ route('client.filter') }}" method="get" class="mr-2 mb-2">
                         <button type="submit" name="filter" value="latest-purchase" class="px-4 text-lg link py-1 text-white bg-rust-green hover:bg-rust transition-all">Latest Purchases</button>
                     </form>
                 </div>

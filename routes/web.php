@@ -41,6 +41,10 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::get('create-products', [ProductController::class, 'create'])->name('product.create');
     Route::post('products', [ProductController::class, 'store'])->name('create.product');
 
+    Route::get('update-product/{slug}', [ProductController::class, 'update_page'])->name('product.update');
+    Route::post('update-product/{slug}', [ProductController::class, 'update'])->name('update.product');
+
+
     Route::get('orders', [OrderController::class, 'orders'])->name('orders');
 });
 

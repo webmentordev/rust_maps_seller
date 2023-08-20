@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Stripe\StripeClient;
+use Illuminate\Http\Request;
 
+use Artesaos\SEOTools\Facades\JsonLd;
 use Artesaos\SEOTools\Facades\SEOMeta;
+use Illuminate\Support\Facades\Storage;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
-use Artesaos\SEOTools\Facades\JsonLd;
 
 class ProductController extends Controller
 {
@@ -73,7 +74,7 @@ class ProductController extends Controller
             'stripe_id' => $product['id'],
             'description' => $request->description,
             'thumbnail' => $imageLink,
-            'mapfile' => $request->map->store('map_files_20087341', 'public_disk'),
+            'mapfile' => $request->map->store(config('app.location'), 'public_disk'),
             'original_map_name' => $request->map->getClientOriginalName(),
         ]);
         return back()->with('success', 'Product has been created!');
@@ -147,5 +148,57 @@ class ProductController extends Controller
         return view('maps', [
             'maps' => $product
         ]);
+    }
+
+
+    public function update_page($slug){
+        $product = Product::where('slug', $slug)->first();
+        if($product){
+            return view('update-product', [
+                'product' => $product
+            ]);
+        }else{
+            abort(404, 'Not Found!');
+        }
+    }
+
+    public function update(Request $request, $slug){
+        $result = Product::where('slug', $slug)->first();
+        if($result){
+            $this->validate($request, [
+                'name' => 'required',
+                'slug' => 'required',
+                'size' => 'required|numeric',
+                'description' => 'required',
+                'map' => 'nullable|mimes:zip',
+                'thumbnail' => 'nullable|image|mimes:png,jpg,jpeg,webp|max:500'
+            ]);
+
+            $thumbnail = null;
+            $map_file = null;
+
+            if($request->hasFile('map')){
+                $map_file = $request->map->store(config('app.location'), 'public_disk');
+            }
+
+            if($request->hasFile('thumbnail')){
+                dd(Storage::disk('public_disk')->delete('/storage/'.$result->thumbnail));
+                $thumbnail = $request->thumbnail->store('map_thumbnails', 'public_disk');
+            }
+
+            $array = [
+                'name' => $request->name,
+                'slug' => $request->slug,
+                'map_size' => $request->size,
+                'description' => $request->description,
+                'thumbnail' => $thumbnail,
+                'mapfile' => $map_file,
+            ];
+
+            $result->update(array_filter($array));
+            return back()->with('success', 'Product has been updated!');
+        }else{
+            abort(404, 'Not Found!');
+        }
     }
 }

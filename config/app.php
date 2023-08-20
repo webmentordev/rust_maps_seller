@@ -25,8 +25,12 @@ return [
     'report' => env('REPORT', ''),
 
     'pending' => env('PENDING', ''),
+
     'completed' => env('COMPLETED', ''),
+
     'cancelled' => env('CANCELLED', ''),
+
+    'location' => env('MAPLOCATION', ''),
     
     /*
     |--------------------------------------------------------------------------

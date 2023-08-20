@@ -22,6 +22,7 @@
                             <th class="text-end">Image</th>
                             <th class="text-end">Posted</th>
                             <th class="p-2 text-end">Visit</th>
+                            <th class="p-2 text-end">Edit</th>
                         </tr>
                         @foreach ($products as $item)
                             <tr class="text-[12px] odd:bg-gray-100">
@@ -33,6 +34,7 @@
                                 <td class="text-end"><a class="underline text-blue-600" href="{{ asset('/storage/'. $item->thumbnail) }}" target="_blank">View</a></td>
                                 <td class="text-end">{{ $item->created_at->format('D d-M-Y H:i:s A') }}</td>
                                 <td class="p-2 text-end"><a class="underline text-blue-600" href="{{ route('map.show', $item->slug) }}" target="_blank">Visit</a></td>
+                                <td class="p-2 text-end"><a class="underline text-blue-600" href="{{ route('product.update', $item->slug) }}">Edit</a></td>
                             </tr>
                         @endforeach
                     </table>
