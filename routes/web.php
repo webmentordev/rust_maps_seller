@@ -11,6 +11,7 @@ use App\Http\Controllers\GelleryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PrefabController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +32,8 @@ Route::get("privacy-policy", [TermsController::class, 'policy'])->name('policy')
 
 Route::get('/cancel/{order:checkout_id}', [OrderController::class, 'cancelOrder']);
 Route::get('/success/{order:checkout_id}', [OrderController::class, 'successOrder']);
+
+Route::get("/prefabs", [PrefabController::class, 'index'])->name('prefabs');
 
 Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
