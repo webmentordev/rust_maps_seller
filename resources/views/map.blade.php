@@ -36,7 +36,8 @@
                     <ul class="list-disc ml-6 mb-3 text-white/50 font-normal"> 
                         <li class="mb-1">Permanent registered on account!</li>
                         <li class="mb-1">Exclusive Map Customize Support</li>
-                        <li class="mb-1">Receive map update on email</li>
+                        <li class="mb-1">Receive map updates</li>
+                        <li class="mb-1">No Password</li>
                         <li>Constant updates after force wipe!</li>
                     </ul>
                     <form action="{{ route("order", $product->slug) }}" method="POST">
