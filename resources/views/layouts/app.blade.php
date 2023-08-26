@@ -34,8 +34,11 @@
             </main>
         </div>
     </body>
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor', {
+            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+    </script>
 </html>
-<script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
-<script>
-CKEDITOR.replace( 'editor' );
-</script>

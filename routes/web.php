@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PrefabController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SiteMapGenerator;
 use App\Http\Controllers\ContactController;
@@ -11,7 +13,6 @@ use App\Http\Controllers\GelleryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PrefabController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +25,8 @@ Route::post("map/search", [ProductController::class, 'search'])->name('map.searc
 
 Route::get("contact", [ContactController::class, 'index'])->name('contact');
 Route::post("contact", [ContactController::class, 'store']);
+
+Route::get("blogs", [BlogController::class, 'index'])->name('blogs');
 
 Route::get("report", [ReportController::class, 'index'])->name('report');
 
@@ -47,8 +50,13 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::get('update-product/{slug}', [ProductController::class, 'update_page'])->name('product.update');
     Route::post('update-product/{slug}', [ProductController::class, 'update'])->name('update.product');
 
-
     Route::get('orders', [OrderController::class, 'orders'])->name('orders');
+
+    Route::get('/create-blog', [BlogController::class, 'create'])->name('blog.create');
+    Route::post('/create-blog', [BlogController::class, 'store']);
+    Route::get('/blogs/show', [BlogController::class, 'show'])->name('blogs.show');
+
+    Route::post('/image_upload', [BlogController::class, 'upload'])->name('upload');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
