@@ -64,20 +64,27 @@ class BlogController extends Controller
         if($blog){
             SEOMeta::setTitle($blog->title);
             SEOMeta::setCanonical(config('app.url').'/blog/'.$blog->slug);
+            SEOMeta::setRobots('index, follow');
+            SEOMeta::addMeta('apple-mobile-web-app-title', 'BuyRustMapsStore');
+            SEOMeta::addMeta('application-name', 'BuyRustMapsStore');
+            SEOMeta::setDescription($blog->description);
 
             OpenGraph::setTitle($blog->title);
             OpenGraph::setUrl(config('app.url').'/blog/'.$blog->slug);
             OpenGraph::addProperty("type", "article");
             OpenGraph::addProperty("locale", "eu");
             OpenGraph::addImage(config('app.url').'/storage/'.$blog->thumbnail);
+            OpenGraph::setDescription($blog->description); 
 
             TwitterCard::setTitle($blog->title);
             TwitterCard::setSite('@buyrustmapsstore');
             TwitterCard::setImage(config('app.url').'/storage/'.$blog->thumbnail);
+            TwitterCard::setDescription($blog->description);
 
             JsonLd::setTitle($blog->title);
             JsonLd::setType("Article");
             JsonLd::addImage(config('app.url').'/storage/'.$blog->thumbnail);
+            JsonLd::setDescription($blog->description);
             
             return view('read-blog', [
                 'blog' => $blog
