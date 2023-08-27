@@ -6,11 +6,13 @@
                 <h1 class="blog-title text-3xl mb-2 text-white">{{ $blog->title }}</h1>
                 <ul class="flex flex-col mb-3 text-rust">
                     <span class="blog-title">Posted: 
-                        <time class="created" datetime="{{ $blog->created_at->tz('UTC')->toAtomString() }}" itemprop="dateCreated">{{ $blog->created_at->format('M d, Y H:i:s A') }}</time>
+                        <time class="created" datetime="{{ $blog->created_at->tz('UTC')->toAtomString() }}" itemprop="dateCreated">{{ $blog->created_at->format('M d, Y H:i:s A') }}</time> (UTC)
                     </span>
-                    <span class="blog-title">Last Updated:
-                        <time class="updated" datetime="{{ $blog->updated_at->tz('UTC')->toAtomString() }}" itemprop="dateModified">{{ $blog->updated_at->format('M d, Y H:i:s A') }}</time>
-                    </span>
+                    @if ($blog->created_at != $blog->updated_at)
+                        <span class="blog-title">Last Updated:
+                            <time class="updated" datetime="{{ $blog->updated_at->tz('UTC')->toAtomString() }}" itemprop="dateModified">{{ $blog->updated_at->format('M d, Y H:i:s A') }}</time> (UTC)
+                        </span>
+                    @endif
                 </ul>
                 <main class=" py-2 blog">
                     <img src="{{ asset('/storage/'.$blog->thumbnail) }}" alt="{{ $blog->title }} Image">

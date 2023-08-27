@@ -7,13 +7,32 @@ use Illuminate\Http\Request;
 
 use Artesaos\SEOTools\Facades\JsonLd;
 use Artesaos\SEOTools\Facades\SEOMeta;
-use Illuminate\Support\Facades\Storage;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
 
 class BlogController extends Controller
 {
     public function index(){
+        SEOMeta::setTitle("Rust Blogs");
+        SEOMeta::setCanonical(config('app.url').'/blogs');
+        SEOMeta::setRobots('index, follow');
+        SEOMeta::addMeta('apple-mobile-web-app-title', 'BuyRustMapsStore');
+        SEOMeta::addMeta('application-name', 'BuyRustMapsStore');
+
+        OpenGraph::setTitle("Rust Blogs");
+        OpenGraph::setUrl(config('app.url').'/blogs');
+        OpenGraph::addProperty("type", "article");
+        OpenGraph::addProperty("locale", "eu");
+        OpenGraph::addImage(config('app.url').'/assets/buy_rust_maps_blog.png');
+
+        TwitterCard::setTitle("Rust Blogs");
+        TwitterCard::setSite('@buyrustmapsstore');
+        TwitterCard::setImage(config('app.url').'/assets/buy_rust_maps_blog.png');
+
+        JsonLd::setTitle("Rust Blogs");
+        JsonLd::setType("Article");
+        JsonLd::addImage(config('app.url').'/assets/buy_rust_maps_blog.png');
+
         return view('blogs', [
             'blogs' => Blog::latest()->paginate(10)
         ]);
@@ -45,13 +64,13 @@ class BlogController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'slug' => 'required',
-            'thumbnail' => 'required|image|mimes:jpg,png,jpeg,webp|max:50|unique:blogs',
+            'thumbnail' => 'required|image|mimes:jpg,png,jpeg,webp|max:150|unique:blogs',
             'description' => 'required',
             'body' => 'required',
         ]);
         Blog::create([
             'title' => $request->title,
-            'thumbnail' => $request->thumbnail->storeAs('blog_small', str_replace(' ', '-', $request->thumbnail->getClientOriginalName()), 'public_disk'),
+            'thumbnail' => $request->thumbnail->storeAs('blog_images', str_replace(' ', '-', $request->thumbnail->getClientOriginalName()), 'public_disk'),
             'description' => $request->description,
             'slug' => strtolower(str_replace(' ', '-', $request->title)),
             'body' => $request->body
@@ -92,5 +111,38 @@ class BlogController extends Controller
         }else{
             abort(404, 'Not Found!');
         }
+    }
+
+    public function update(Blog $blog){
+        return view('blog.update-blog',[
+            'blog' => $blog
+        ]);
+    }
+
+
+    public function update_blog(Request $request, Blog $blog){
+        $this->validate($request, [
+            'title' => 'required',
+            'thumbnail' => 'nullable|image|mimes:jpg,png,jpeg,webp|max:150',
+            'body' => 'required',
+            'slug' => 'required',
+            'description' => 'required'
+        ]);
+
+        $array = array(
+            "title" => $request->title,
+            "body" => $request->body,
+            "slug" => $request->slug,
+            "description" => $request->description,
+        );
+
+        if($request->hasFile('thumbnail')){
+            $thumbnail = $request->thumbnail->storeAs('blog_images', str_replace(' ', '-', $request->thumbnail->getClientOriginalName()), 'public_disk');
+            $array['thumbnail'] = $thumbnail;
+        }
+
+        $blog->update(array_filter($array));
+        $blog->save();
+        return back()->with('success', 'Blog Successfully Updated!');
     }
 }

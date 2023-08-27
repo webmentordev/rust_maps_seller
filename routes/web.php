@@ -55,7 +55,10 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
 
     Route::get('/create-blog', [BlogController::class, 'create'])->name('blog.create');
     Route::post('/create-blog', [BlogController::class, 'store']);
+
     Route::get('/blogs/show', [BlogController::class, 'show'])->name('blogs.show');
+    Route::get('/blog/update/{blog:slug}', [BlogController::class, 'update'])->name('blog.update');
+    Route::patch('/blog/update/{blog:slug}', [BlogController::class, 'update_blog'])->name('update.blog');
 
     Route::post('/image_upload', [BlogController::class, 'upload'])->name('upload');
 });

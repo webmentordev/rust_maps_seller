@@ -9,7 +9,7 @@
         </div>
     </section>
     <section class="w-full">
-        <div class="max-w-5xl m-auto py-[120px] px-4"> 
+        <div class="max-w-4xl m-auto py-[120px] px-4"> 
             <h1 class="text-6xl text-white leading-10 text-center mb-6">Blogs</h1>
             <form action="{{ route('map.search') }}" method="POST" class="flex items-center">
                 @csrf
@@ -20,10 +20,13 @@
                 <div class="grid grid-cols-2 gap-6 mt-6 m-auto 710:flex 710:flex-col 1000:grid-cols-2 1000:max-w-2xl">
                     @foreach ($blogs as $blog)
                         <div class="bg-dark-100 p-3 rounded-lg 710:max-w-[440px] w-full m-auto">
-                            <img src="{{ asset('/storage/'. $blog->thumbnail) }}" class="mb-3 rounded-lg" alt="{{ $blog->name }} Image">
-                            <div class="p-3">
-                                <span class="link bg-dark text-sm text-gray-200 py-2 px-3 mb-2 inline-block">Posted: {{ $blog->created_at->diffForHumans() }}</span>
-                                <h3 class="blog-title text-2xl text-white/80">{{ $blog->title }}</h3>
+                            <img data-src="{{ asset('/storage/'. $blog->thumbnail) }}" class="mb-3 lazyload rounded-lg" alt="{{ $blog->name }} Image">
+                            <div class="py-3 px-2">
+                                <span class="link rounded-md bg-dark text-sm text-gray-200 py-2 px-3 mb-3 inline-block">Posted: {{ $blog->created_at->diffForHumans() }}</span>
+                                @if ($blog->created_at != $blog->updated_at)
+                                    <span class="link rounded-md bg-rust-green text-sm text-gray-200 py-2 px-3 mb-3 inline-block">Updated: {{ $blog->updated_at->diffForHumans() }}</span>
+                                @endif
+                                <h3 class="blog-title text-xl text-white/80">{{ $blog->title }}</h3>
                             </div>
                             <a href="{{ route('blog.read', $blog->slug) }}" class="py-3 blog-title rounded-lg bg-rust inline-block px-4 w-full font-semibold text-center text-white">Read article</a>
                         </div>

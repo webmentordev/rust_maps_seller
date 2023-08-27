@@ -28,7 +28,7 @@
                                 <td class="text-start">{{ $item->slug }}</td>
                                 <td class="text-end p-2">{{ $item->created_at->format('D d-M-Y H:i:s A') }}</td>
                                 <td class="text-end p-2"><a class="underline text-blue-500" href="{{ asset('/storage/'. $item->thumbnail) }}">View</a></td>
-                                <td class="text-end p-2"><a class="underline text-blue-500" href="#">Edit</a></td>
+                                <td class="text-end p-2"><a class="underline text-blue-500" href="{{ route('blog.update', $item->slug) }}">Edit</a></td>
                             </tr>
                         @endforeach
                     </table>
