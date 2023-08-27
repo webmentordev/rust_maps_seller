@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 
+use Artesaos\SEOTools\Facades\JsonLd;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Illuminate\Support\Facades\Storage;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+
 class BlogController extends Controller
 {
     public function index(){
@@ -51,5 +57,33 @@ class BlogController extends Controller
             'body' => $request->body
         ]);
         return back()->with('success', 'Blog has been uploaded!');
+    }
+
+
+    public function read(Blog $blog){
+        if($blog){
+            SEOMeta::setTitle($blog->title);
+            SEOMeta::setCanonical(config('app.url').'/blog/'.$blog->slug);
+
+            OpenGraph::setTitle($blog->title);
+            OpenGraph::setUrl(config('app.url').'/blog/'.$blog->slug);
+            OpenGraph::addProperty("type", "article");
+            OpenGraph::addProperty("locale", "eu");
+            OpenGraph::addImage(config('app.url').'/storage/'.$blog->thumbnail);
+
+            TwitterCard::setTitle($blog->title);
+            TwitterCard::setSite('@buyrustmapsstore');
+            TwitterCard::setImage(config('app.url').'/storage/'.$blog->thumbnail);
+
+            JsonLd::setTitle($blog->title);
+            JsonLd::setType("Article");
+            JsonLd::addImage(config('app.url').'/storage/'.$blog->thumbnail);
+            
+            return view('read-blog', [
+                'blog' => $blog
+            ]);
+        }else{
+            abort(404, 'Not Found!');
+        }
     }
 }

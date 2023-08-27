@@ -39,7 +39,15 @@
     @foreach ($maps as $map)
         <url>
             <loc>{{ url('/') }}/map/{{ $map->slug }}</loc>
-            <lastmod>{{ $map->created_at->tz('UTC')->toAtomString() }}</lastmod>
+            <lastmod>{{ $map->updated_at->tz('UTC')->toAtomString() }}</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+        </url>
+    @endforeach
+    @foreach ($blogs as $blog)
+        <url>
+            <loc>{{ url('/') }}/blog/{{ $blog->slug }}</loc>
+            <lastmod>{{ $blog->updated_at->tz('UTC')->toAtomString() }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.80</priority>
         </url>
