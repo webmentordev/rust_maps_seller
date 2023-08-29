@@ -19,7 +19,7 @@
             @if (count($blogs))
                 <div class="grid grid-cols-2 gap-6 mt-6 m-auto 710:flex 710:flex-col 1000:grid-cols-2 1000:max-w-2xl">
                     @foreach ($blogs as $blog)
-                        <div class="bg-dark-100 p-3 rounded-lg 710:max-w-[440px] w-full m-auto">
+                        <a href="{{ route('blog.read', $blog->slug) }}" class="bg-dark-100 p-3 rounded-lg 710:max-w-[440px] w-full m-auto">
                             <img data-src="{{ asset('/storage/'. $blog->thumbnail) }}" class="mb-3 lazyload rounded-lg" alt="{{ $blog->name }} Image">
                             <div class="py-3 px-2">
                                 <span class="link rounded-md bg-dark text-sm text-gray-200 py-2 px-3 mb-3 inline-block">Posted: {{ $blog->created_at->diffForHumans() }}</span>
@@ -28,8 +28,8 @@
                                 @endif
                                 <h3 class="blog-title text-xl text-white/80">{{ $blog->title }}</h3>
                             </div>
-                            <a href="{{ route('blog.read', $blog->slug) }}" class="py-3 blog-title rounded-lg bg-rust inline-block px-4 w-full font-semibold text-center text-white">Read article</a>
-                        </div>
+                            <span class="py-3 blog-title rounded-lg bg-rust inline-block px-4 w-full font-semibold text-center text-white">Read article</span>
+                        </a>
                     @endforeach
                 </div>
             @else
