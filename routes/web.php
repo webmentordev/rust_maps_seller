@@ -28,6 +28,7 @@ Route::post("contact", [ContactController::class, 'store']);
 
 Route::get("blogs", [BlogController::class, 'index'])->name('blogs');
 Route::get("blog/{blog:slug}", [BlogController::class, 'read'])->name('blog.read');
+Route::post("blog/search/", [BlogController::class, 'search'])->name('blog.search');
 
 Route::get("report", [ReportController::class, 'index'])->name('report');
 

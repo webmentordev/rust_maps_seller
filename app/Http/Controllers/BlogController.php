@@ -145,4 +145,28 @@ class BlogController extends Controller
         $blog->save();
         return back()->with('success', 'Blog Successfully Updated!');
     }
+
+    public function search(Request $request){
+        SEOMeta::setTitle('Search Blog');
+        SEOMeta::setCanonical(config('app.url').'/blog/search');
+
+        OpenGraph::setTitle('Search Blog');
+        OpenGraph::setUrl(config('app.url').'/blog/search');
+        OpenGraph::addProperty("type", "website");
+        OpenGraph::addProperty("locale", "eu");
+        OpenGraph::addImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        TwitterCard::setTitle('Search Blog');
+        TwitterCard::setSite('@buyrustmapsstore');
+        TwitterCard::setImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        JsonLd::setTitle('Search Blog');
+        JsonLd::setType("WebSite");
+        JsonLd::addImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        $blogs = Blog::where('title', 'LIKE', '%'.$request->search.'%')->orWhere('description', 'LIKE', '%'.$request->search.'%')->get();
+        return view('blogs', [
+            'blogs' => $blogs
+        ]);
+    }
 }
