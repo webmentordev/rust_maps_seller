@@ -41,6 +41,11 @@ class ContactController extends Controller
             'message' => 'required|min:10|max:1200',
         ]);
 
+        $message_array = explode(' ', strtolower($request->message));
+        if(in_array('google', $message_array) || in_array('seo', $message_array) || in_array('traffic', $message_array) || in_array('search', $message_array)){
+            return back()->with('success', 'Contact message sent!');
+        }
+
         Contact::create([
             'name' => $request->name,
             'email' => $request->email,
