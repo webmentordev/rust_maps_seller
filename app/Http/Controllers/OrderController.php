@@ -61,10 +61,13 @@ class OrderController extends Controller
             'currency' => "USD",
             'expires_at' => Carbon::now()->addMinutes(120)->timestamp,
             'line_items' => [
-                [
-                    'price' => $product->price_id,
-                    'quantity' => 1,
-                ],
+                [ 
+                    'price_data' => [
+                    "product" => $product->stripe_id,
+                    "currency" => 'USD',
+                    "unit_amount" =>  $product->price * 100,
+                ], 
+                'quantity' => 1 ],
             ],
             'mode' => 'payment',
         ]);
