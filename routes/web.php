@@ -13,6 +13,7 @@ use App\Http\Controllers\GelleryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FreeMapController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -48,6 +49,12 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::get('products', [ProductController::class, 'index'])->name('product.dashboard');
     Route::get('create-products', [ProductController::class, 'create'])->name('product.create');
     Route::post('products', [ProductController::class, 'store'])->name('create.product');
+
+    Route::get('free-maps/listing', [FreeMapController::class, 'index'])->name('free.map.list');
+    Route::get('create-free-map', [FreeMapController::class, 'create'])->name('free.map.create');
+    Route::post('free-map/create', [FreeMapController::class, 'store'])->name('create.free.map');
+    Route::get('update-free-map/{slug}', [FreeMapController::class, 'update_page'])->name('free.map.update');
+    Route::post('update-free-map/{slug}', [FreeMapController::class, 'update'])->name('update.free.map');
 
     Route::get('update-product/{slug}', [ProductController::class, 'update_page'])->name('product.update');
     Route::post('update-product/{slug}', [ProductController::class, 'update'])->name('update.product');

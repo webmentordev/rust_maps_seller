@@ -31,6 +31,8 @@ return [
     'cancelled' => env('CANCELLED', ''),
 
     'location' => env('MAPLOCATION', ''),
+
+    'free' => env('FREELOCATION', ''),
     
     /*
     |--------------------------------------------------------------------------

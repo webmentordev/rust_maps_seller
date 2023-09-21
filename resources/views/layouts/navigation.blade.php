@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('blogs.show')" :active="request()->routeIs('blogs.show')">
                         {{ __('Blogs') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('free.map.list')" :active="request()->routeIs('free.map.list')">
+                        {{ __('FreeMaps') }}
+                    </x-nav-link>
                 </div>
             </div>
 

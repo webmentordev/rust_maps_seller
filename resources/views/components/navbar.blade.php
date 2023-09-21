@@ -6,7 +6,16 @@
         </a>
         <ul class="link text-white flex items-center 945px:hidden">
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('home') }}">Home</a>
-            <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('maps.fetch') }}">Maps</a>
+            <div x-data="{ open: false }" class="relative cursor-pointer">
+                <div class="flex items-center" x-on:click="open = !open">
+                    <span class="link pl-4 text-lg transition-all hover:text-rust">Maps</span>
+                <img class="ml-1" src="https://api.iconify.design/fluent:caret-down-12-filled.svg?color=%23ffffff" alt="Caret Down Logo">
+                </div>
+                <ul class="absolute w-[150px] border border-white/10 text-start right-0 top-9 rounded-lg text-white flex flex-col bg-dark p-6 link" x-show="open" x-transition x-cloak>
+                    <a class="pb-3 text-lg w-full border-b border-dark-100" href="{{ route('maps.fetch') }}">Paid</a>
+                    <a class="py-3 text-lg w-full" href="{{ route('maps.fetch') }}">Free</a>
+                </ul>
+            </div>
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('blogs') }}">Blogs</a>
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('prefabs') }}">Prefabs</a>
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('report') }}">Report</a>
@@ -28,9 +37,10 @@
         </ul>
         <div x-data="{ open: false }" class="945px:block hidden relative">
             <img x-on:click="open = !open" src="https://api.iconify.design/fluent:text-align-right-16-filled.svg?color=%23e85617" width="38" alt="Align Icons">
-            <ul class="absolute w-[200px] text-start right-0 top-9 rounded-lg text-white flex flex-col bg-dark p-6 link" x-show="open" x-transition x-cloak>
+            <ul class="absolute w-[200px] text-start border border-white/10 right-0 top-9 rounded-lg text-white flex flex-col bg-dark p-6 link" x-show="open" x-transition x-cloak>
                 <a class="pb-3 border-b border-dark-100" href="{{ route('home') }}">Home</a>
-                <a class="py-3 border-b border-dark-100" href="{{ route('maps.fetch') }}">Maps</a>
+                <a class="py-3 border-b border-dark-100" href="{{ route('maps.fetch') }}">Paid Maps</a>
+                <a class="py-3 border-b border-dark-100" href="{{ route('maps.fetch') }}">Free Maps</a>
                 <a class="py-3 border-b border-dark-100" href="{{ route('blogs') }}">Blogs</a>
                 <a class="py-3 border-b border-dark-100" href="{{ route('prefabs') }}">Prefabs</a>
                 <a class="py-3 border-b border-dark-100" href="{{ route('report') }}">Report</a>
