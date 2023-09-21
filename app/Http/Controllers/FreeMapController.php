@@ -6,6 +6,11 @@ use App\Models\FreeMap;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use Artesaos\SEOTools\Facades\JsonLd;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+
 class FreeMapController extends Controller
 {
     public function index(){
@@ -16,6 +21,17 @@ class FreeMapController extends Controller
 
     public function create(){
         return view('admin.create-free-map');
+    }
+
+    function randomNameGenerator() {
+        $alphabet = 'abcdefghijklmnopqrstuvw.()&@xyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = array();
+        $alphaLength = strlen($alphabet) - 1;
+        for ($i = 0; $i < 5; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass);
     }
 
     public function store(Request $request){
@@ -86,5 +102,64 @@ class FreeMapController extends Controller
         }else{
             abort(404, 'Not Found!');
         }
+    }
+
+    public function show(){
+        SEOMeta::setTitle('Download Free Custom Rust Maps');
+        SEOMeta::setCanonical(config('app.url').'/maps/free');
+
+        OpenGraph::setTitle('Download Free Custom Rust Maps');
+        OpenGraph::setUrl(config('app.url').'/maps/free');
+        OpenGraph::addProperty("type", "website");
+        OpenGraph::addProperty("locale", "eu");
+        OpenGraph::addImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        TwitterCard::setTitle('Download Free Custom Rust Maps');
+        TwitterCard::setSite('@buyrustmapsstore');
+        TwitterCard::setImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        JsonLd::setTitle('Download Free Custom Rust Maps');
+        JsonLd::setType("WebSite");
+        JsonLd::addImage(config('app.url').'/assets/rust_maps_preview.png');
+        
+        return view('free-maps', [
+            'maps' => FreeMap::latest()->get()
+        ]);
+    }
+
+    public function download($slug)
+    {
+        $map = FreeMap::where('slug', $slug)->first();
+        $originalFilePath = Storage::disk('public_disk')->path($map->mapfile);
+        $newFileName = $this->randomNameGenerator().'-buyrustmaps-store-'.date("d-m-y").'.zip';
+        $headers = [
+            'Content-Type' => 'application/zip',
+            'Content-Disposition' => 'attachment; filename="' . $newFileName . '"',
+        ];
+        return response()->file($originalFilePath, $headers);
+    }
+
+    public function search(Request $request){
+        SEOMeta::setTitle('Search Free Custom Rust Maps');
+        SEOMeta::setCanonical(config('app.url').'/map/search');
+
+        OpenGraph::setTitle('Search Free Custom Rust Maps');
+        OpenGraph::setUrl(config('app.url').'/map/search');
+        OpenGraph::addProperty("type", "website");
+        OpenGraph::addProperty("locale", "eu");
+        OpenGraph::addImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        TwitterCard::setTitle('Search Free Custom Rust Maps');
+        TwitterCard::setSite('@buyrustmapsstore');
+        TwitterCard::setImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        JsonLd::setTitle('Search Free Custom Rust Maps');
+        JsonLd::setType("WebSite");
+        JsonLd::addImage(config('app.url').'/assets/rust_maps_preview.png');
+
+        $product = FreeMap::where('name', 'LIKE', '%'.$request->search.'%')->where('is_active', true)->get();
+        return view('free-maps', [
+            'maps' => $product
+        ]);
     }
 }

@@ -144,7 +144,7 @@ class ProductController extends Controller
         JsonLd::setType("WebSite");
         JsonLd::addImage(config('app.url').'/assets/rust_maps_preview.png');
 
-        $product = Product::where('name', 'LIKE', '%'.$request->search.'%')->orWhere('description', 'LIKE', '%'.$request->search.'%')->get();
+        $product = Product::where('name', 'LIKE', '%'.$request->search.'%')->orWhere('description', 'LIKE', '%'.$request->search.'%')->where('is_active', true)->get();
         return view('maps', [
             'maps' => $product
         ]);

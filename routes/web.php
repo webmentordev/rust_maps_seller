@@ -24,6 +24,10 @@ Route::get("map/{product:slug}", [ProductController::class, 'show'])->name('map.
 Route::get("maps", [ProductController::class, 'fetch'])->name('maps.fetch');
 Route::post("map/search", [ProductController::class, 'search'])->name('map.search');
 
+Route::get("maps/free", [FreeMapController::class, 'show'])->name('maps.free');
+Route::post("maps/download/{slug}", [FreeMapController::class, 'download'])->name('freemap.download')->middleware(['throttle:1,60']);
+Route::get("map/free/search", [FreeMapController::class, 'search'])->name('free.map.search');
+
 Route::get("contact", [ContactController::class, 'index'])->name('contact');
 Route::post("contact", [ContactController::class, 'store']);
 
