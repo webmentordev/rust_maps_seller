@@ -107,18 +107,22 @@ class FreeMapController extends Controller
     public function show(){
         SEOMeta::setTitle('Download Free Custom Rust Maps');
         SEOMeta::setCanonical(config('app.url').'/maps/free');
+        SEOMeta::setDescription("Download free custom rust maps. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map");
 
         OpenGraph::setTitle('Download Free Custom Rust Maps');
+        OpenGraph::setDescription("Download free custom rust maps. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map"); 
         OpenGraph::setUrl(config('app.url').'/maps/free');
         OpenGraph::addProperty("type", "website");
         OpenGraph::addProperty("locale", "eu");
         OpenGraph::addImage(config('app.url').'/assets/rust_maps_preview.png');
 
         TwitterCard::setTitle('Download Free Custom Rust Maps');
+        TwitterCard::setDescription("Download free custom rust maps. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map");
         TwitterCard::setSite('@buyrustmapsstore');
         TwitterCard::setImage(config('app.url').'/assets/rust_maps_preview.png');
 
         JsonLd::setTitle('Download Free Custom Rust Maps');
+        JsonLd::setDescription("Download free custom rust maps. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map");
         JsonLd::setType("WebSite");
         JsonLd::addImage(config('app.url').'/assets/rust_maps_preview.png');
         
@@ -142,18 +146,23 @@ class FreeMapController extends Controller
     public function search(Request $request){
         SEOMeta::setTitle('Search Free Custom Rust Maps');
         SEOMeta::setCanonical(config('app.url').'/map/search');
+        SEOMeta::setDescription("Search free custom rust maps. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map");
 
         OpenGraph::setTitle('Search Free Custom Rust Maps');
+        OpenGraph::setDescription("Search free custom rust maps. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map"); 
         OpenGraph::setUrl(config('app.url').'/map/search');
         OpenGraph::addProperty("type", "website");
         OpenGraph::addProperty("locale", "eu");
         OpenGraph::addImage(config('app.url').'/assets/rust_maps_preview.png');
+        
 
         TwitterCard::setTitle('Search Free Custom Rust Maps');
+        TwitterCard::setDescription("Search free custom rust maps. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map");
         TwitterCard::setSite('@buyrustmapsstore');
         TwitterCard::setImage(config('app.url').'/assets/rust_maps_preview.png');
 
         JsonLd::setTitle('Search Free Custom Rust Maps');
+        JsonLd::setDescription("Search free custom rust maps. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map");
         JsonLd::setType("WebSite");
         JsonLd::addImage(config('app.url').'/assets/rust_maps_preview.png');
 

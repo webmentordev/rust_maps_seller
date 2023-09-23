@@ -21,7 +21,7 @@
                         <div class="bg-dark-100 p-3 rounded-lg 710:max-w-[440px] w-full m-auto">
                             <div class="overflow-hidden rounded-lg relative">
                                 <span class="link absolute z-10 bg-rust top-2 left-3 py-1 px-2 rounded-md text-lg text-white">{{ $map->map_size }} MAP</span>
-                                <img class="rounded-lg w-full lazyload" data-src="{{ asset('/storage/'. $map->thumbnail) }}" alt="{{ $map->name }} Map Image">
+                                <img class="rounded-lg w-full lazyload" data-src="{{ asset('/storage/'. $map->thumbnail) }}" title="{{ $map->name }}" alt="{{ $map->name }} Map Image">
                                 <div class="px-2 py-4 w-full">
                                     <span class="link bg-dark text-sm text-gray-200 py-2 px-3 mb-2 inline-block">{{ $map->created_at->diffForHumans() }}</span>
                                     <h2 class="text-white/90 text-2xl mb-1">{{ $map->name }}</h2>

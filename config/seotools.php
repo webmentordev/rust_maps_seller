@@ -43,7 +43,9 @@ return [
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => false,
             'site_name'   => false,
-            'images'      => [],
+            'images'      => [
+                "https://buyrustmaps.store/assets/rust_maps_preview.png"
+            ],
         ],
     ],
     'twitter' => [
@@ -64,7 +66,9 @@ return [
             'description' => 'Buy Cheap Rust Maps under 5$. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map', // set false to total remove
             'url'         => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'        => 'WebPage',
-            'images'      => [],
+            'images'      => [
+                "https://buyrustmaps.store/assets/rust_maps_preview.png"
+            ],
         ],
     ],
 ];
