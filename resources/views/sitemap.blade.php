@@ -42,6 +42,18 @@
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
+    <url>
+        <loc>{{ url('/') }}/maps/free</loc>
+        <lastmod>2023-09-22T09:34:11+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>{{ url('/') }}/maps/free/search</loc>
+        <lastmod>2023-09-22T09:34:11+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
     @foreach ($maps as $map)
         <url>
             <loc>{{ url('/') }}/map/{{ $map->slug }}</loc>

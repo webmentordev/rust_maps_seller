@@ -19,7 +19,7 @@
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('blogs') }}">Blogs</a>
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('prefabs') }}">Prefabs</a>
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('report') }}">Report</a>
-            <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('contact') }}">Contact</a>
+            <a class="px-4 text-lg transition-all hover:text-rust" rel="nofollow" href="{{ route('contact') }}">Contact</a>
             @auth
                 <a class="px-4 text-lg transition-all hover:text-rust border-r border-white/10" href="{{ route('client') }}">Client</a>
                 @if (auth()->user()->is_admin)
@@ -31,8 +31,8 @@
                 </form>
             @endauth
             @guest
-                <a class="px-4 text-lg transition-all hover:text-rust border-r border-white/10" href="{{ route('login') }}">Login</a>
-                <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('register') }}">Signup</a>
+                <a class="px-4 text-lg transition-all hover:text-rust border-r border-white/10" href="{{ route('login') }}" rel="nofollow">Login</a>
+                <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('register') }}" rel="nofollow">Signup</a>
             @endguest
         </ul>
         <div x-data="{ open: false }" class="945px:block hidden relative">
@@ -43,8 +43,8 @@
                 <a class="py-3 border-b border-dark-100" href="{{ route('maps.free') }}">Free Maps</a>
                 <a class="py-3 border-b border-dark-100" href="{{ route('blogs') }}">Blogs</a>
                 <a class="py-3 border-b border-dark-100" href="{{ route('prefabs') }}">Prefabs</a>
-                <a class="py-3 border-b border-dark-100" href="{{ route('report') }}">Report</a>
-                <a class="py-3 border-b border-dark-100" href="{{ route('contact') }}">Contact</a>
+                <a class="py-3 border-b border-dark-100" rel="nofollow" href="{{ route('report') }}">Report</a>
+                <a class="py-3 border-b border-dark-100" rel="nofollow" href="{{ route('contact') }}">Contact</a>
                 @auth
                     @if (auth()->user()->is_admin)
                         <a class="py-3 border-b border-dark-100" href="{{ route('dashboard') }}">Dashboard</a>
@@ -56,8 +56,8 @@
                     </form>
                 @endauth
                 @guest
-                    <a class="py-3 border-b border-dark-100" href="{{ route('login') }}">Login</a>
-                    <a class="py-3" href="{{ route('register') }}">Register</a>
+                    <a class="py-3 border-b border-dark-100" rel="nofollow" href="{{ route('login') }}">Login</a>
+                    <a class="py-3" href="{{ route('register') }}" rel="nofollow">Register</a>
                 @endguest
             </ul>
         </div>

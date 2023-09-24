@@ -37,8 +37,8 @@
                     </div>
 
                     <div class="w-full mb-3">
-                        <x-custom-label for="message" :value="__('Message')" />
-                        <x-custom-textarea id="message" :value="{{ old('message') }}" class="block mt-1 w-full" placeholder="Please mention grid number too...!" name="message" :value="old('message')" autocomplete="off" />
+                        <x-custom-label for="message" :value="__('Message (please mention grid number)')" />
+                        <x-custom-textarea id="message" :value="{{ old('message') }}" class="block mt-1 w-full" name="message" :value="old('message')" autocomplete="off" />
                         <x-input-error :messages="$errors->get('message')" class="mt-2" />
                     </div>
                     
