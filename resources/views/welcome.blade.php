@@ -13,4 +13,5 @@
     </section>
     <x-listing />
     <x-sponsor />
+    <x-f-a-q />
 @endsection
