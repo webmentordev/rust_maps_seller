@@ -11,7 +11,7 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => "Buy Rust Maps Store", // set false to total remove
+            'title'        => "Buy Custom Rust Maps Store", // set false to total remove
             'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
             'description'  => 'Buy Cheap Rust Maps under 5$. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map', // set false to total remove
             'separator'    => ' — ',
@@ -38,7 +38,7 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'Buy Rust Maps Store', // set false to total remove
+            'title'       => 'Buy Custom Rust Maps Store', // set false to total remove
             'description' => 'Buy Cheap Rust Maps under 5$. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map', // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => false,
@@ -62,7 +62,7 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'       => 'Buy Rust Maps Store', // set false to total remove
+            'title'       => 'Buy Custom Rust Maps Store', // set false to total remove
             'description' => 'Buy Cheap Rust Maps under 5$. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map', // set false to total remove
             'url'         => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'        => 'WebPage',
