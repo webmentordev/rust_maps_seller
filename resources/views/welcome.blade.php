@@ -13,5 +13,17 @@
     </section>
     <x-listing />
     <x-sponsor />
+    
+    <section class="w-full h-[700px] relative bg-center bg-cover bg-fixed" style="background-image: url({{ asset('assets/turret.webp') }})">
+        <div class="absolute top-0 left-0 w-full h-full bg-dark bg-opacity-70 backdrop-blur-sm"></div>
+        <div class="h-full w-full relative z-20 flex items-center justify-center">
+            <div class="text-center">
+                <h2 class="text-white text-3xl mb-3">Want to learn and play rust <br> without worring about getting killed?</h2>
+                <img src="{{ asset('assets/rusty_text_logo.png') }}" class="max-w-lg m-auto" alt="RustyUrnaium logo">
+                <a href="steam://connect/188.244.117.121:28015" class="py-3 text-white text-3xl px-5 link rounded-md bg-rust inline-block" target="_blank">Join 10x PVE</a>
+            </div>
+        </div>
+    </section>
+    
     <x-f-a-q />
 @endsection
