@@ -9,23 +9,26 @@
         </div>
     </section>
     <section class="w-full">
-        <div class="max-w-6xl m-auto py-12 px-4 grid grid-cols-3 gap-3">
+        <div class="max-w-6xl m-auto py-12 px-4 grid grid-cols-3 gap-3" 
+        x-data="{ 
+            images: [
+                '{{ asset('/storage/'. $product->thumbnail) }}',
+                @foreach ($product->images as $image)
+                    '{{ asset('/storage/'.$image->url) }}',
+                @endforeach
+        ], active: null }" x-init="active = images[0]">
             <div class="col-span-2 w-full p-3 rounded-lg bg-dark-100">
                 @if (session('error'))
                     <x-custom-error :value="session('error')" />
                 @endif
-                <div class="grid grid-cols-4 mb-3 gap-3">
-                    <a class="mb-3 w-full mr-3 col-span-3" href="{{ asset('/storage/'. $product->thumbnail) }}" target="_blank" rel="dofollow">
-                        <img data-src="{{ asset('/storage/'. $product->thumbnail) }}" class="lazyload w-full h-full rounded-lg" alt="{{ $product->name }} Rust Map Image">
-                    </a>
-                    <div class="flex flex-col w-fit">
-                        @foreach ($product->images as $image)
-                            <a class="mb-3" href="{{ asset('/storage/'. $image->url) }}" target="_blank" rel="dofollow">
-                                <img data-src="{{ asset('/storage/'. $image->url) }}" class="lazyload w-full rounded-lg" alt="{{ $product->name }} Rust Map Image">
-                            </a>
-                        @endforeach
+                <img :data-src="active" class="lazyload mb-3 w-full h-fit rounded-lg" alt="{{ $product->name }} Rust Map Image" title="{{ $product->name }} Rust Map Image">
+                @if (count($product->images))
+                    <div class="w-fit grid grid-cols-5 gap-3">
+                        <template x-for="image in images">
+                            <img :src="image" width="150px" class="mr-2 rounded-lg" :class="{ 'border-4 border-rust': active == image }" x-on:mouseenter="active = image">
+                        </template>
                     </div>
-                </div>
+                @endif
                 <main class="main-body px-6">
                     {!! $product->description !!}
                 </main>
