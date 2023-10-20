@@ -11,9 +11,9 @@
                     <span class="link pl-4 text-lg transition-all hover:text-rust">Maps</span>
                 <img class="ml-1" src="https://api.iconify.design/fluent:caret-down-12-filled.svg?color=%23ffffff" alt="Caret Down Logo">
                 </div>
-                <ul class="absolute w-[100px] border border-white/10 text-start right-0 top-9 rounded-lg text-white flex flex-col bg-dark p-6 link" x-show="open" x-transition x-cloak>
-                    <a class="pb-3 text-lg w-full border-b border-dark-100" href="{{ route('maps.fetch') }}">Paid</a>
-                    <a class="py-3 text-lg w-full" href="{{ route('maps.free') }}">Free</a>
+                <ul class="absolute w-[100px] border border-white/10 text-start right-0 top-9 rounded-lg text-white flex flex-col bg-dark py-3 px-5 link" x-show="open" x-transition x-cloak>
+                    <a class="py-2 text-lg w-full border-b border-dark-100" href="{{ route('maps.fetch') }}">Paid</a>
+                    <a class="py-2 text-lg w-full" href="{{ route('maps.free') }}">Free</a>
                 </ul>
             </div>
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('blogs') }}">Blogs</a>

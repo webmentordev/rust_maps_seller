@@ -68,10 +68,10 @@ h3 {
     @apply text-white mb-3;
 }
 .main-body h2 {
-    @apply text-5xl
+    @apply text-5xl mt-6;
 }
 .main-body h3 {
-    @apply text-3xl
+    @apply text-3xl mt-6;
 }
 
 .main-body span{

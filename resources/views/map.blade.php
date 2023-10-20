@@ -21,15 +21,15 @@
                 @if (session('error'))
                     <x-custom-error :value="session('error')" />
                 @endif
-                <img :data-src="active" class="lazyload mb-3 w-full h-fit rounded-lg" alt="{{ $product->name }} Rust Map Image" title="{{ $product->name }} Rust Map Image">
+                <img :src="active" class="lazyload mb-3 w-full h-fit rounded-lg" alt="{{ $product->name }} Rust Map Image" title="{{ $product->name }} Rust Map Image">
                 @if (count($product->images))
-                    <div class="w-fit grid grid-cols-5 gap-3">
+                    <div class="w-fit grid grid-cols-5 gap-3 mb-6">
                         <template x-for="image in images">
-                            <img :src="image" width="150px" class="mr-2 rounded-lg" :class="{ 'border-4 border-rust': active == image }" x-on:mouseenter="active = image">
+                            <img :src="image" width="150px" class="mr-2 rounded-lg h-full object-cover" :class="{ 'border-4 border-rust': active == image }" x-on:mouseenter="active = image">
                         </template>
                     </div>
                 @endif
-                <main class="main-body px-6">
+                <main class="main-body px-3">
                     {!! $product->description !!}
                 </main>
             </div>
@@ -45,7 +45,7 @@
                     </ul>
                     <form action="{{ route("order", $product->slug) }}" method="POST">
                         @csrf
-                        <button type="submit" class="bg-rust-green text-white link py-2 px-4 w-full text-lg inline-block text-center rounded-sm transition-all hover:bg-rust">Pay ${{ $product->price }}</button>
+                        <button type="submit" class="bg-rust-green text-white link py-2 px-4 w-full text-lg inline-block text-center rounded-sm transition-all hover:bg-rust">Buy ${{ $product->price }}</button>
                     </form>
                     <div class="flex justify-between items-center w-full mt-2 py-3">
                         <img src="{{ asset('assets/payment_cards.png') }}" width="140px" alt="Stripe Payment methods icon">
