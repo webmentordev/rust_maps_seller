@@ -13,16 +13,19 @@ use App\Http\Controllers\GelleryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\FreeMapController;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get("f-a-q", [FAQController::class, 'index'])->name('f.a.q');
 
 Route::get("map/{product:slug}", [ProductController::class, 'show'])->name('map.show');
 Route::get("maps", [ProductController::class, 'fetch'])->name('maps.fetch');
 Route::post("map/search", [ProductController::class, 'search'])->name('map.search');
+
 
 Route::get("maps/free", [FreeMapController::class, 'show'])->name('maps.free');
 Route::post("maps/download/{slug}", [FreeMapController::class, 'download'])->name('freemap.download')->middleware(['throttle:1,60']);

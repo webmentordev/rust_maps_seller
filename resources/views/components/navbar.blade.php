@@ -1,7 +1,7 @@
-<nav class="w-full fixed top-5 p-3 left-0 z-50 px-4">
+<nav class="w-full fixed top-3 left-0 z-50 px-4">
     <div class="max-w-5xl py-2 px-3 m-auto flex items-center justify-between bg-dark rounded-lg border border-white/10 bg-opacity-70 backdrop-blur-md">
         <a class="flex items-center" href="{{ route('home') }}">
-            <img src="{{ asset('assets/buy_rust_maps_logo.png') }}" class="rounded-md" width="45" alt="Buy Cushrefm Rust Maps Logo">
+            <img src="{{ asset('assets/buy_rust_maps_logo.png') }}" class="rounded-md" width="35" alt="Buy Cushrefm Rust Maps Logo">
             <span class="ml-3 link text-2xl text-white">Buyrustmaps</span>
         </a>
         <ul class="link text-white flex items-center 945px:hidden">
@@ -17,6 +17,7 @@
                 </ul>
             </div>
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('blogs') }}">Blogs</a>
+            <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('f.a.q') }}">F.A.Q</a>
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('prefabs') }}">Prefabs</a>
             <a class="px-4 text-lg transition-all hover:text-rust" href="{{ route('report') }}">Report</a>
             <a class="px-4 text-lg transition-all hover:text-rust" rel="nofollow" href="{{ route('contact') }}">Contact</a>
@@ -42,6 +43,7 @@
                 <a class="py-3 border-b border-dark-100" href="{{ route('maps.fetch') }}">Paid Maps</a>
                 <a class="py-3 border-b border-dark-100" href="{{ route('maps.free') }}">Free Maps</a>
                 <a class="py-3 border-b border-dark-100" href="{{ route('blogs') }}">Blogs</a>
+                <a class="py-3 border-b border-dark-100" href="{{ route('f.a.q') }}">F.A.Q</a>
                 <a class="py-3 border-b border-dark-100" href="{{ route('prefabs') }}">Prefabs</a>
                 <a class="py-3 border-b border-dark-100" rel="nofollow" href="{{ route('report') }}">Report</a>
                 <a class="py-3 border-b border-dark-100" rel="nofollow" href="{{ route('contact') }}">Contact</a>

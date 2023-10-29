@@ -48,5 +48,5 @@
             @endif
         </div>
     </section>
-    <x-sponsor />
+    {{-- <x-sponsor /> --}}
 @endsection
