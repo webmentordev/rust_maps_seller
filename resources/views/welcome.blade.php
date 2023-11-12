@@ -15,33 +15,33 @@
     <x-listing />
 
     <section class="w-full">
-        <div class="flex max-w-5xl m-auto py-[30px] rounded-lg px-4">
-            <img src="{{ asset('assets/falt.webp') }}" class="rounded-lg w-full h-fit max-w-[500px]" title="FPS+ Flat Terrain Map" alt="FPS+ Flat Terrain">
-            <div class="w-full p-6">
+        <div class="flex max-w-5xl m-auto py-[30px] rounded-lg px-4 900:flex-col">
+            <img src="{{ asset('assets/falt.webp') }}" class="rounded-lg w-full h-fit max-w-[500px] 900:order-2 900:max-w-full" title="FPS+ Flat Terrain Map" alt="FPS+ Flat Terrain">
+            <div class="w-full p-6 900:p-0 900:py-6 900:order-1">
                 <h2 class="text-4xl mb-3 text-white">What is FPS+ Rust Map?</h2>
                 <p class="mb-4 text-gray-100">In the FPS+ Rust Map, the terrain is flat and smooth, with unnecessary prefabs removed and fewer rock formations. This improvement is designed to enhance server performance and player FPS. For additional details, please refer to the map description.</p>
-                <p class="mb-4 text-gray-100">As visible in the image, there is no grass. We've utilized a special biome type to paint the terrain, resulting in shorter grass. This adjustment is aimed at enhancing player FPS in-game.</p>
+                <p class="mb-4 text-gray-100">As visible in the image, there is no grass (tundra biome). We've utilized a special biome type to paint the terrain, resulting in shorter grass. This adjustment is aimed at enhancing player FPS in-game.</p>
                 <p class="text-gray-100">We have removed large mountains and cliffs, eliminating extensive formations. This absence of substantial rock formations contributes to a reduced map size. Typically, a Rust map occupies 40 - 50MB, but without large rock formations, the number of prefabs decreases, significantly lowering the file size to approximately 15 - 20MB</p>
             </div>
         </div>
 
-        <div class="flex max-w-5xl m-auto py-[30px] rounded-lg px-4">
-            <div class="w-full py-6 pr-6">
+        <div class="flex max-w-5xl m-auto py-[30px] rounded-lg px-4 900:flex-col">
+            <div class="w-full py-6 pr-6 900:pr-0">
                 <h2 class="text-4xl mb-3 text-white">Combined Outpost & Bandit Camp</h2>
                 <p class="mb-4 text-gray-100">The <a href="https://codefling.com/monuments/combined-outpost" class="text-main underline" title="Our Merged Outpost and Bandit Camp Design" target="_blank" rel="nofollow">Outpost and Bandit Camp</a> have been consolidated into a single entity, with the Outpost assuming the primary role. This unified location now includes added benefits such as teleportation and comprehensive support for the Monument addons plugin. Please refer to the map description for further details.</p>
                 <p class="mb-4 text-gray-100">We maintain the Outpost as the default entity, ensuring that everything within the Outpost remains unchanged. This approach facilitates the functionality of plugins such as NTeleportation and MonumentsFinder, allowing them to accurately locate monuments for configuring specific teleport points or entities.</p>
                 <p class="mb-4 text-gray-100">Our maps are designed with a primary focus on PvP, resulting in smaller PvP-grade maps typically ranging between 3450 and 4250 maximum. I have a personal preference for creating maps similar to 'Vital Rust' and 'WarBandits</p>
             </div>
-            <img src="{{ asset('assets/outpost.webp') }}" class="rounded-lg w-full h-fit max-w-[500px]" title="FPS+ Flat Terrain Map" alt="FPS+ Flat Terrain">
+            <img src="{{ asset('assets/outpost.webp') }}" class="rounded-lg w-full h-fit max-w-[500px] 900:max-w-full" title="FPS+ Flat Terrain Map" alt="FPS+ Flat Terrain">
         </div>
 
-        <div class="flex max-w-5xl m-auto py-[30px] rounded-lg px-4">
-            <img src="{{ asset('assets/map.webp') }}" class="rounded-lg w-full h-fit max-w-[500px]" title="FPS+ Flat Terrain Map" alt="FPS+ Flat Terrain">
-            <div class="w-full p-6">
+        <div class="flex max-w-5xl m-auto py-[30px] rounded-lg px-4 900:flex-col">
+            <img src="{{ asset('assets/map.webp') }}" class="rounded-lg w-full h-fit max-w-[500px] 900:order-2 900:max-w-full" title="FPS+ Flat Terrain Map" alt="FPS+ Flat Terrain">
+            <div class="w-full p-6 900:p-0 900:py-6 900:order-1">
                 <h2 class="text-4xl mb-3 text-white">Special Biome Pattern</h2>
-                <p class="mb-4 text-gray-100">In the FPS+ Rust Map, the terrain is flat and smooth, with unnecessary prefabs removed and fewer rock formations. This improvement is designed to enhance server performance and player FPS. For additional details, please refer to the map description.</p>
-                <p class="mb-4 text-gray-100">As visible in the image, there is no grass. We've utilized a special biome type to paint the terrain, resulting in shorter grass. This adjustment is aimed at enhancing player FPS in-game.</p>
-                <p class="text-gray-100">We have removed large mountains and cliffs, eliminating extensive formations. This absence of substantial rock formations contributes to a reduced map size. Typically, a Rust map occupies 40 - 50MB, but without large rock formations, the number of prefabs decreases, significantly lowering the file size to approximately 15 - 20MB</p>
+                <p class="mb-4 text-gray-100">We use a special biome pattern for our paid maps, aiming to include all four biome types: Arctic, Desert (Arid), Temperature (Long grass), and Tundra (Short grass). Free maps, on the other hand, do not come with a custom biome pattern due to the time it takes to create them. Free maps only feature the merged Outpost and Bandit Camp.</p>
+                <p class="mb-4 text-gray-100">We use all four biome designs to ensure that all biome-specific monuments spawn appropriately, such as the Arctic base in the snow biome, military base in the desert biome, etc. Using all four biomes ensures that we don't miss out on those monuments.</p>
+                <p class="text-gray-100">We try our best to divided the map into three biomes, primarily Arctic, Desert, and Temperature. The Temperature biome is mixed with Tundra.</p>
             </div>
         </div>
     </section>
