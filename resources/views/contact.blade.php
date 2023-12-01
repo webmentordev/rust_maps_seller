@@ -11,6 +11,10 @@
                         <x-custom-success :value="session('success')" />
                     @endif
 
+                    @if (session('status'))
+                        <p class="mb-3 text-red-600">{{ session('status') }}</p>
+                    @endif
+
                     @auth
                         <div class="w-full mb-3">
                             <x-custom-label for="name" :value="__('Name')" />
@@ -53,6 +57,8 @@
                         <x-custom-textarea id="message" :value="{{ old('message') }}" class="block mt-1 w-full" placeholder="Compose here..." name="message" :value="old('message')" autocomplete="off" />
                         <x-input-error :messages="$errors->get('message')" class="mt-2" />
                     </div>
+
+                    <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
                     
                     <x-custom-button class="mt-1">
                         {{ __('Send') }}

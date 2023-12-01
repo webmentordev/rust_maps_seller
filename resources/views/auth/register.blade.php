@@ -1,6 +1,10 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
+        
+        @if (session('status'))
+            <p class="mb-3 text-red-600">{{ session('status') }}</p>
+        @endif
 
         <!-- Name -->
         <div>
@@ -38,6 +42,8 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
+
+        <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-200 hover:text-rust-green rounded-md focus:outline-none" href="{{ route('login') }}">
