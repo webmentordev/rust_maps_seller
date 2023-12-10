@@ -35,6 +35,8 @@ return [
     'free' => env('FREELOCATION', ''),
 
     'signup' => env('SIGNUP', ''),
+
+    'location' => env('LOCATION', ''),
     
     /*
     |--------------------------------------------------------------------------

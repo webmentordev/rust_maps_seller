@@ -45,7 +45,7 @@ return [
         ],
         'public_disk' => [
             'driver' => 'local',
-            'root' => base_path('./public/storage'),
+            'root' => base_path(config('app.location')),
             'throw' => false,
         ],
         's3' => [
