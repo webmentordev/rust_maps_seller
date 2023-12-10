@@ -12,6 +12,9 @@ export default {
     theme: {
         extend: {
             screens: {
+                "1040px": {
+                    "max": "1040px"
+                },
                 "1000": {
                     "max": "1000px"
                 },
@@ -43,6 +46,9 @@ export default {
                     "max": "520px"
                 },
                 "430": {
+                    "max": "430px"
+                },
+                "430px": {
                     "max": "430px"
                 },
                 
