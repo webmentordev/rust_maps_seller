@@ -1,6 +1,6 @@
 <section class="w-full">
     <div class="max-w-5xl m-auto py-[120px] px-4"> 
-        <h1 class="text-6xl text-white leading-10 text-center mb-6">New Rust Maps</h1>
+        <h1 class="text-6xl text-white leading-10 text-center mb-6">New Custom Rust Maps</h1>
         @if (count($maps))
             <div class="grid grid-cols-3 gap-6 mt-6 m-auto 710:flex 710:flex-col 1000:grid-cols-2 1000:max-w-2xl">
                 @foreach ($maps as $map)

@@ -4,13 +4,14 @@
         <div class="absolute top-0 left-0 w-full h-full bg-dark bg-opacity-60 backdrop-blur-sm"></div>
         <div class="max-w-7xl m-auto py-12 px-4 flex items-center justify-center h-full relative"> 
             <div class="text-center">
-                <h1 class="text-6xl text-white mb-3 leading-[50px] 520:text-4xl">Our Personalized Rust Maps<br> <span class="text-5xl link text-rust">Collection</span></h1>
+                <h1 class="text-6xl text-white mb-3 leading-[50px] 520:text-4xl" title="Paid Custom Rust Maps Collection">Our Paid Custom Rust Maps<br> <span class="text-5xl link text-rust">Collection</span></h1>
             </div>
         </div>
     </section>
     <section class="w-full">
         <div class="max-w-5xl m-auto py-[120px] px-4"> 
-            <h2 class="text-6xl text-white leading-10 text-center mb-6">Our Paid Rust Maps</h2>
+            <h2 class="text-6xl text-white leading-10 text-center mb-2">Our Paid Rust Maps</h2>
+            <p class="text-center text-white mb-4">List of all paid custom Rust maps with FPS+, buildable areas, and other special configurations. <br> All custom Rust maps feature FPS+, indicating flat terrain, fewer rock formations, and custom node spawn locations.</p>
             <form action="{{ route('map.search') }}" method="POST" class="flex items-center">
                 @csrf
                 <input type="text" name="search" required autocomplete="off" placeholder="Search map by name..." class="py-2 px-3 rounded-lg bg-dark-100 border border-white/10 w-full text-white/80">
@@ -51,5 +52,6 @@
             @endif
         </div>
     </section>
-    {{-- <x-sponsor /> --}}
+    
+    <x-sponsor />
 @endsection

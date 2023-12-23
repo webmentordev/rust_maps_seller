@@ -8,6 +8,7 @@
                 {{-- <p class="text-white mb-3">Purchase Exquisite Custom-Built Maps Showcasing Newly Launched Monuments</p> --}}
                 <a href="https://discord.gg/5XFteSutRK" target="_blank" rel="dofollow" class="link py-2 px-4 text-lg mr-2 text-gray-100 bg-rust inline-block">Discord</a>
                 <a href="{{ route('maps.fetch') }}" class="link py-2 px-4 text-lg text-gray-100 bg-rust inline-block">Collection</a>
+                <a href="{{ route('maps.free') }}" class="link py-2 px-4 text-lg text-gray-100 bg-rust inline-block ml-2">Free</a>
             </div>
         </div>
     </section>
@@ -38,7 +39,7 @@
         <div class="flex max-w-5xl m-auto py-[30px] rounded-lg px-4 900:flex-col">
             <img src="{{ asset('assets/map.webp') }}" class="rounded-lg w-full h-fit max-w-[500px] 900:order-2 900:max-w-full" title="FPS+ Flat Terrain Map" alt="FPS+ Flat Terrain">
             <div class="w-full p-6 900:p-0 900:py-6 900:order-1">
-                <h2 class="text-4xl mb-3 text-white">Special Biome Pattern</h2>
+                <h2 class="text-4xl mb-3 text-white">Special Biome Pattern Rust Maps</h2>
                 <p class="mb-4 text-gray-100">We use a special biome pattern for our paid maps, aiming to include all four biome types: Arctic, Desert (Arid), Temperature (Long grass), and Tundra (Short grass). Free maps, on the other hand, do not come with a custom biome pattern due to the time it takes to create them. Free maps only feature the merged Outpost and Bandit Camp.</p>
                 <p class="mb-4 text-gray-100">We use all four biome designs to ensure that all biome-specific monuments spawn appropriately, such as the Arctic base in the snow biome, military base in the desert biome, etc. Using all four biomes ensures that we don't miss out on those monuments.</p>
                 <p class="text-gray-100">We try our best to divided the map into three biomes, primarily Arctic, Desert, and Temperature. The Temperature biome is mixed with Tundra.</p>
@@ -46,16 +47,6 @@
         </div>
     </section>
 
-    {{-- <x-sponsor /> --}}
+    <x-sponsor />
     
-    {{-- <section class="w-full h-[700px] relative bg-center bg-cover bg-fixed" style="background-image: url({{ asset('assets/turret.webp') }})">
-        <div class="absolute top-0 left-0 w-full h-full bg-dark bg-opacity-70 backdrop-blur-sm"></div>
-        <div class="h-full w-full relative z-20 flex items-center justify-center">
-            <div class="text-center">
-                <h2 class="text-white text-3xl mb-3">Want to learn and play rust <br> without worring about getting killed?</h2>
-                <img src="{{ asset('assets/rusty_text_logo.png') }}" class="max-w-lg m-auto" alt="RustyUrnaium logo">
-                <a href="steam://connect/188.244.117.121:28015" class="py-3 text-white text-3xl px-5 link rounded-md bg-rust inline-block" target="_blank">Join 5X PVE</a>
-            </div>
-        </div>
-    </section> --}}
 @endsection

@@ -4,13 +4,14 @@
         <div class="absolute top-0 left-0 w-full h-full bg-dark bg-opacity-60 backdrop-blur-sm"></div>
         <div class="max-w-7xl m-auto py-12 px-4 flex items-center justify-center h-full relative"> 
             <div class="text-center">
-                <h1 class="text-8xl text-white mb-3 leading-[50px] 520:text-6xl">Rust Related Blogs</h1>
+                <h1 class="text-8xl text-white mb-3 leading-[50px] 690px:text-5xl">Rust Related Blogs</h1>
             </div>
         </div>
     </section>
     <section class="w-full">
         <div class="max-w-4xl m-auto py-[120px] px-4"> 
-            <h2 class="text-6xl text-white leading-10 text-center mb-6">Our Blogs</h2>
+            <h2 class="text-6xl text-white leading-10 text-center mb-3">Our Rust Blogs</h2>
+            <p class="text-center text-white mb-4"></p>
             <form action="{{ route('blog.search') }}" method="POST" class="flex items-center">
                 @csrf
                 <input type="text" name="search" required autocomplete="off" placeholder="Search blog by title..." class="py-2 px-3 rounded-lg bg-dark-100 border border-white/10 w-full text-white/80">
@@ -37,5 +38,7 @@
             @endif
         </div>
     </section>
-    {{-- <x-sponsor /> --}}
+
+    <x-sponsor />
+
 @endsection

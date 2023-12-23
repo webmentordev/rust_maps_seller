@@ -112,7 +112,7 @@ h3 {
 .blog  a {
     text-decoration: underline;
     font-family: 'Inter', sans-serif;
-    @apply text-rust;
+    @apply text-[#f3703c];
 }
 
 .blog img{
