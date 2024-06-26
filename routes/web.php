@@ -14,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\DashboardController;
+use App\Livewire\CreateProduct;
 
 Route::get('/', Home::class)->name('home');
 Route::get('/maps', Products::class)->name('maps');
@@ -42,8 +43,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
     Route::delete('/contact/delete/{contact}', [ContactController::class, 'delete'])->name('contact.delete');
 
     Route::get('/products', [ProductController::class, 'index'])->name('products');
-    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
-    Route::post('/product/create', [ProductController::class, 'store'])->name('create.product');
+    Route::get('/product/create', CreateProduct::class)->name('product.create');
     Route::get('/product/update/{product:slug}', [ProductController::class, 'edit'])->name('product.update');
     Route::patch('/product/update-product/{product:slug}', [ProductController::class, 'update'])->name('update.product');
     Route::patch('/product/status/{product:slug}', [ProductController::class, 'status'])->name('product.status');
