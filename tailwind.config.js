@@ -36,6 +36,9 @@ export default {
                 "690px": {
                     "max": "690px"
                 },
+                "580px": {
+                    "max": "580px"
+                },
                 "540": {
                     "max": "540px"
                 },

@@ -1,27 +1,15 @@
 <?php
-
-use PharIo\Manifest\Url;
-/**
- * @see https://github.com/artesaos/seotools
- */
-
 return [
     'meta' => [
-        /*
-         * The default configurations to be used by the meta generator.
-         */
         'defaults'       => [
-            'title'        => "Buy Custom Rust Maps Store", // set false to total remove
-            'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
-            'description'  => 'Buy Cheap Rust Maps under 5$. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map', // set false to total remove
-            'separator'    => ' — ',
-            'keywords'     => ['Rust Maps', 'Buy Rust Maps'],
-            'canonical'    => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
-            'robots'       => false, // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
+            'title'        => "Purchase Custom Less Prefabs Rust Maps",
+            'titleBefore'  => false,
+            'description'  => 'Find and purchase custom Rust maps with fewer prefabs, optimized for better performance and unique gameplay experiences',
+            'separator'    => ' - ',
+            'keywords'     => ['Rust maps', 'custom maps', 'custom rust maps', 'less prefabs', 'Rust game'],
+            'canonical'    => false,
+            'robots'       => false,
         ],
-        /*
-         * Webmaster tags are always added.
-         */
         'webmaster_tags' => [
             'google'    => null,
             'bing'      => null,
@@ -34,41 +22,39 @@ return [
         'add_notranslate_class' => false,
     ],
     'opengraph' => [
-        /*
-         * The default configurations to be used by the opengraph generator.
-         */
         'defaults' => [
-            'title'       => 'Buy Custom Rust Maps Store', // set false to total remove
-            'description' => 'Buy Cheap Rust Maps under 5$. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map', // set false to total remove
-            'url'         => false, // Set null for using Url::current(), set false to total remove
+            'title'       => 'Purchase Custom Less Prefabs Rust Maps',
+            'description' => 'Find and purchase custom Rust maps with fewer prefabs, optimized for better performance and unique gameplay experiences',
+            'url'         => false,
             'type'        => false,
             'site_name'   => false,
-            'images'      => [
-                "https://buyrustmaps.store/assets/rust_maps_preview.png"
-            ],
+            'images'      => [],
         ],
     ],
     'twitter' => [
-        /*
-         * The default values to be used by the twitter cards generator.
-         */
         'defaults' => [
             'card'        => 'large_summary',
-            'site'        => '@buyrustmapsstore',
+            'site'        => 'customrustprints',
         ],
     ],
     'json-ld' => [
-        /*
-         * The default configurations to be used by the json-ld generator.
-         */
         'defaults' => [
-            'title'       => 'Buy Custom Rust Maps Store', // set false to total remove
-            'description' => 'Buy Cheap Rust Maps under 5$. Rust FPS+, Buildable Roads, Combined Outpost and Bandit Camp Map, Flat Terrain Maps, Koth Island Maps, Custom Monuments Map', // set false to total remove
-            'url'         => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
+            'title'       => 'Purchase Custom Less Prefabs Rust Maps',
+            'description' => 'Find and purchase custom Rust maps with fewer prefabs, optimized for better performance and unique gameplay experiences',
+            'url'         => false,
             'type'        => 'WebPage',
-            'images'      => [
-                "https://buyrustmaps.store/assets/rust_maps_preview.png"
-            ],
+            'images'      => [],
+            'additional'  => [
+                '@context' => 'https://schema.org',
+                '@type'    => 'WebPage',
+                'name'     => 'Purchase Custom Less Prefabs Rust Maps',
+                'description' => 'Find and purchase custom Rust maps with fewer prefabs, optimized for better performance and unique gameplay experiences.',
+                'url'      => 'https://customrustprints.online',
+                'brand'    => [
+                    '@type' => 'Brand',
+                    'name'  => 'CustomRustPrint'
+                ],
+            ]
         ],
     ],
 ];

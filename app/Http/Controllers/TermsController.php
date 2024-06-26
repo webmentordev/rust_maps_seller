@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 
 class TermsController extends Controller
 {
-    public function index(){
+    public function terms(){
         return view('terms-of-service');
     }
-
     public function policy(){
         return view('privacy-policy');
     }

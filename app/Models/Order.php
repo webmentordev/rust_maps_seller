@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\User;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -12,17 +12,14 @@ class Order extends Model
 
     protected $fillable = [
         'product_id',
-        'user_id',
-        'map_slug',
-        'order_id',
         'checkout_id',
+        'email',
+        'is_paid',
         'status',
-        'price'
+        'price',
+        'downloads',
+        'url'
     ];
-
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
 
     public function product(){
         return $this->belongsTo(Product::class);

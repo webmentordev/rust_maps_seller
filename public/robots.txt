@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://buyrustmaps.store/sitemap.xml
+Sitemap: https://customrustprints.online/sitemap.xml
