@@ -4,7 +4,6 @@ use App\Livewire\Home;
 use App\Livewire\Contact;
 use App\Livewire\Product;
 use App\Livewire\Products;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TermsController;
@@ -15,6 +14,7 @@ use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\DashboardController;
 use App\Livewire\CreateProduct;
+use App\Livewire\UpdateProduct;
 
 Route::get('/', Home::class)->name('home');
 Route::get('/maps', Products::class)->name('maps');
@@ -44,8 +44,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
 
     Route::get('/products', [ProductController::class, 'index'])->name('products');
     Route::get('/product/create', CreateProduct::class)->name('product.create');
-    Route::get('/product/update/{product:slug}', [ProductController::class, 'edit'])->name('product.update');
-    Route::patch('/product/update-product/{product:slug}', [ProductController::class, 'update'])->name('update.product');
+    Route::get('/product/update/{product:slug}', UpdateProduct::class)->name('product.update');
     Route::patch('/product/status/{product:slug}', [ProductController::class, 'status'])->name('product.status');
 
     Route::get('/orders', [OrderController::class, 'index'])->name('orders');
