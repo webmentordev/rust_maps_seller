@@ -25,7 +25,7 @@ class CreateProduct extends Component
             'image' => 'required|image|max:1024|mimes:png,jpg,webp',
             'file' => 'required|file|mimes:zip|max:1000000',
             'size' => 'required|numeric',
-            'content' => 'required|max:255',
+            'content' => 'required',
             'seo' => 'required|max:255',
         ]);
         $stripe = new StripeClient(config('app.stripe'));
