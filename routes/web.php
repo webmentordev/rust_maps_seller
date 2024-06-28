@@ -13,13 +13,16 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GalleryController;
 use App\Livewire\CreateProduct;
+use App\Livewire\Gallery;
 use App\Livewire\UpdateProduct;
 
 Route::get('/', Home::class)->name('home');
 Route::get('/maps', Products::class)->name('maps');
 Route::get('/map/{product:slug}', Product::class)->name('map');
 Route::get('/contact', Contact::class)->name('contact');
+Route::get('/gallery', Gallery::class)->name('gallery');
 
 Route::get('/cancel/{order:checkout_id}', [OrderController::class, 'cancel'])->name('cancel');
 Route::get('/success/{order:checkout_id}', [OrderController::class, 'success'])->name('success');
@@ -49,6 +52,10 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
 
     Route::get('/orders', [OrderController::class, 'index'])->name('orders');
     Route::delete('/order/delete/{order}', [OrderController::class, 'delete'])->name('order.delete');
+
+    Route::get('/image/list', [GalleryController::class, 'index'])->name('images');
+    Route::post('/image/create/', [GalleryController::class, 'store'])->name('image.create');
+    Route::delete('/image/delete/{gallery}', [GalleryController::class, 'delete'])->name('image.delete');
 });
 
 

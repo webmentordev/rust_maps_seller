@@ -17,7 +17,7 @@ use Artesaos\SEOTools\Facades\TwitterCard;
 
 class Product extends Component
 {
-    public $product, $email;
+    public $product, $email, $singleImage;
     
     public function mount(ModelsProduct $product)
     {
@@ -25,6 +25,7 @@ class Product extends Component
             abort(404);
         }
         $this->product = $product;
+        $this->singleImage = asset('/storage/'. $product->image);
         SEOMeta::setTitle($product->title);
         SEOMeta::setDescription($product->seo);
         SEOMeta::setCanonical(config('app.url')."/map/".$product->slug);
