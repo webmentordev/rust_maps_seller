@@ -1,4 +1,7 @@
 <section>
+    <div wire:loading wire:target='purchaseNow'>
+        <x-processing message="Processing! please wait..." />
+    </div>
     <div class="max-w-5xl m-auto px-4 grid grid-cols-2 py-[100px] gap-6 580px:grid-cols-1">
         <div class="h-fit" x-data="{ imageUrl: '{{ $singleImage }}' }">
             <a class="h-fit mb-5" :href="imageUrl" target="_blank" title="{{ $product->title }} Custom Rust Map image" alt="{{ $product->title }} Custom Rust Map image">
@@ -16,9 +19,6 @@
                 <h3 class="text-2xl mb-1">Warning</h3>
                 <p class="font-semibold text-sm">Please add the <a href="https://github.com/k1lly0u/Oxide.Ext.RustEdit" target="_blank" rel="nofollow" class="underline">RustEdit extension</a> to your server to make it work; otherwise, the map will not function properly.</p>
             </div>
-        </div>
-        <div wire:loading wire:target='purchaseNow'>
-            <x-processing message="Processing! please wait..." />
         </div>
         <div class="bg-dark-100 p-6 rounded-2xl border border-white/10 mb-4 text-sm h-fit">
             <h1 class="text-3xl mb-1 text-white">{{ $product->title }}</h1>

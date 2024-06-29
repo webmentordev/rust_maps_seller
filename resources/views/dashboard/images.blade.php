@@ -19,7 +19,7 @@
                             <x-select name="product" required class="w-full">
                                 <option value="" selected>Please select a product</option>
                                 @foreach ($products as $product)
-                                    <option value="{{ $product->slug }}" selected>{{ $product->title }}</option>  
+                                    <option value="{{ $product->slug }}">{{ $product->title }}</option>  
                                 @endforeach
                             </x-select>
                             <x-input-error :messages="$errors->get('product')" class="mt-2" />
